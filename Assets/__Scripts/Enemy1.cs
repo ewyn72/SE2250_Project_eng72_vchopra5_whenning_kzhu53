@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Enemy1 : Enemy
 {
-    private int leftOrRight = 0;
+    private int _leftOrRight = 0;
 
     public void Start()
     {
-        leftOrRight = (int)Random.Range(0, 2);
+       _leftOrRight = (int)Random.Range(0, 2);
     }
 
     public void Update()
@@ -20,11 +20,11 @@ public class Enemy1 : Enemy
     {
         Vector3 position = this.transform.position;
 
-        if (leftOrRight == 0)
+        if (_leftOrRight == 0)
         {
             position.x -= speed * Time.deltaTime;
         }
-        else if (leftOrRight == 1)
+        else if (_leftOrRight == 1)
         {
             position.x += speed * Time.deltaTime;
         }

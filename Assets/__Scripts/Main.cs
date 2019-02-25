@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    private float time = 0.0f;
+    private float _time = 0.0f;
 
     public float spawnEverySecond = 2.0f;
     public GameObject[] prefabEnemies;
@@ -12,10 +12,10 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (time >= spawnEverySecond)
+        _time += Time.deltaTime;
+        if (_time >= spawnEverySecond)
         {
-            time = time - spawnEverySecond;
+            _time = _time - spawnEverySecond;
             GameObject enemy;
             int enemyChoice = (int)Random.Range(1, 4);
             if (enemyChoice == 1)
