@@ -3,15 +3,18 @@ using System.Collections;
 
 public class Enemy2 : Enemy
 {
-    private float speedX;
-    private float speedY;
+    private float waveFrequency = 2;
+    private float waveWidth = 8;
+    private float waveRotY = 45;
 
-    private bool turnOtherWay = false;
+    private float x0;
+    private float birthtime;
 
     public void Start()
     {
-        speedX = speed;
-        speedY = speed;
+        speed = 20;
+        x0 = transform.position.x;
+        birthtime = Time.time;
     }
 
     public void Update()
@@ -19,29 +22,21 @@ public class Enemy2 : Enemy
         Move();
     }
 
-    override
-    public void Move()
+
+    public override void Move()
     {
-        Vector3 position = this.transform.position;
-        position.y -= speedY * Time.deltaTime;
-        position.x -= speedX * Time.deltaTime;
-        this.transform.position = position;
+        Vector3 temppos = transform.position;
 
-        if (!turnOtherWay && speedX < speed + 20)
-        {
-            speedX += 1;
-            speedY -= 1;
-        }
-        else if (speedX > speed-30 && speedY < speed+30)
-        {
-            speedX -= 1;
-            speedY += 1;
-        }
+        float age = Time.time - birthtime;
+        float theta = Mathf.PI * 2 * age / waveFrequency;
+        float sin = Mathf.Sin(theta);
+        temppos.x = x0 + waveWidth * sin;
+        transform.position = temppos;
 
-        if (speedY <= 0)
-        {
-            turnOtherWay = true;
-        }
+        Vector3 rotate = new Vector3(0, sin * waveRotY, 0);
+        this.transform.rotation = Quaternion.Euler(rotate);
+
+        base.Move();
     }
 
 }
