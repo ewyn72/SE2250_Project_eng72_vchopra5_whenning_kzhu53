@@ -17,11 +17,6 @@ public class Enemy2 : Enemy
         birthtime = Time.time;
     }
 
-    public void Update()
-    {
-        Move();
-    }
-
 
     public override void Move()
     {

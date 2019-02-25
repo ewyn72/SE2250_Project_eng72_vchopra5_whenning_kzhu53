@@ -5,9 +5,4 @@ using UnityEngine;
 public class Enemy0 : Enemy
 {
 
-    public void Update()
-    {
-        base.Move();
-    }
-
 }

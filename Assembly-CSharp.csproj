@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B9AB7813-E8FD-02B8-5772-AD61751CDDB1}</ProjectGuid>
+    <ProjectGuid>{D01C8E55-AA4A-6A75-621A-6A17B3C2771F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -70,19 +70,19 @@
     <Compile Include="Assets\__Scripts\Main.cs" />
     <None Include="Assets\_Materials\UnlitAlpha.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -289,19 +289,19 @@
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/vishalchopra/Documents/School/University/Second Year/SE2250/Assignment3/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/ethanng/Documents/SE2250 Software Construction/SE2250Project/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

@@ -30,8 +30,8 @@ public class Main : MonoBehaviour
             {
                 enemy = Instantiate<GameObject>(enemy2);
             }
-            float xPos = Random.Range(-50, 50);
-            enemy.transform.position = new Vector3(xPos, 50f);
+            float xPos = Random.Range(-30, 30);
+            enemy.transform.position = new Vector3(xPos, 42f);
         }
     }
 }
