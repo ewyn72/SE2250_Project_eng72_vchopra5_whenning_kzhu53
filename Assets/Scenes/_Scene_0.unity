@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,9 +276,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98be68c930c33042929ad5e9364881b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy0: {fileID: 2516586006188414462, guid: 46c23bd61f0c09f4e8599b7d688e21ae, type: 3}
-  enemy1: {fileID: 3508336672919086552, guid: 14e2622d9460a5b4bbd9a57ec1d4abf6, type: 3}
-  enemy2: {fileID: 3707159307648709493, guid: 7d24ee024170cad40ac301b2c251ca70, type: 3}
+  spawnEverySecond: 2
+  prefabEnemies:
+  - {fileID: 2516586006188414462, guid: 46c23bd61f0c09f4e8599b7d688e21ae, type: 3}
+  - {fileID: 3508336672919086552, guid: 14e2622d9460a5b4bbd9a57ec1d4abf6, type: 3}
+  - {fileID: 3707159307648709493, guid: 7d24ee024170cad40ac301b2c251ca70, type: 3}
 --- !u!1 &1210783981
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +485,12 @@ MonoBehaviour:
   radius: 1
   camWidth: 0
   camHeight: 0
+  keepOnScreen: 1
+  isOnScreen: 1
+  offRight: 0
+  offLeft: 0
+  offUp: 0
+  offDown: 0
 --- !u!1 &1766021245
 GameObject:
   m_ObjectHideFlags: 0

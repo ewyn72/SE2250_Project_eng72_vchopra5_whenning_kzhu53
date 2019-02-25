@@ -5,33 +5,33 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     private float time = 0.0f;
-    public GameObject enemy0;
-    public GameObject enemy1;
-    public GameObject enemy2;
+
+    public float spawnEverySecond = 2.0f;
+    public GameObject[] prefabEnemies;
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        if (time >= 3.0f)
+        if (time >= spawnEverySecond)
         {
-            time = time - 3.0f;
+            time = time - spawnEverySecond;
             GameObject enemy;
-            float enemyChoice = Random.Range(1, 4);
+            int enemyChoice = (int)Random.Range(1, 4);
             if (enemyChoice == 1)
             {
-                enemy = Instantiate<GameObject>(enemy0);
+                enemy = Instantiate<GameObject>(prefabEnemies[0]);
             }
             else if (enemyChoice == 2)
             {
-                enemy = Instantiate<GameObject>(enemy1);
+                enemy = Instantiate<GameObject>(prefabEnemies[1]);
             }
             else
             {
-                enemy = Instantiate<GameObject>(enemy2);
+                enemy = Instantiate<GameObject>(prefabEnemies[2]);
             }
             float xPos = Random.Range(-30, 30);
-            enemy.transform.position = new Vector3(xPos, 42f);
+            enemy.transform.position = new Vector3(xPos, 45f);
         }
     }
 }
