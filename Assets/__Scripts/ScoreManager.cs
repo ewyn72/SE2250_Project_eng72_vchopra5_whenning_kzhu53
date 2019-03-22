@@ -8,14 +8,14 @@ public class ScoreManager : MonoBehaviour
     static public ScoreManager SM;
     public Text highScore;
     public Text currentScore;
-    private float highS;
-    private float currS;
+    private float _highS;
+    private float _currS;
 
     void Awake()
     {
-        highS = (float) PlayerPrefs.GetInt("highscore", 0);
-        highScore.text = "HighScore: " + highS;
-        currS = 0;
+        _highS = (float) PlayerPrefs.GetInt("highscore", 0);
+        highScore.text = "HighScore: " + _highS;
+        _currS = 0;
         SM = this;
     }
     // Start is called before the first frame update
@@ -32,28 +32,28 @@ public class ScoreManager : MonoBehaviour
 
     public void updateCurrScore(float score)
     {
-        currS += score;
-        currentScore.text = "Current Score: " + currS;
+        _currS += score;
+        currentScore.text = "Current Score: " + _currS;
     }
 
     public void updateHighScore()
     {
-        if(highS < currS)
+        if(_highS < _currS)
         {
-            highS = currS;
+            _highS = _currS;
         }
-        currS = 0;
+        _currS = 0;
 
-        PlayerPrefs.SetInt("highscore", (int) highS);
+        PlayerPrefs.SetInt("highscore", (int) _highS);
         PlayerPrefs.Save();
 
-        highScore.text = "HighScore: " + highS;
+        highScore.text = "HighScore: " + _highS;
     }
 
     public void resetHighscore()
     {
         PlayerPrefs.SetInt("highscore", 0);
-        highS = 0f;
-        highScore.text = "HighScore: " + highS;
+        _highS = 0f;
+        highScore.text = "HighScore: " + _highS;
     }
 }

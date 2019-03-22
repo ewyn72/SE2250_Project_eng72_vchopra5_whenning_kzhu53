@@ -32,13 +32,13 @@ public class Weapon : MonoBehaviour
     public WeaponDefinition def;
     public GameObject collar;
     public float lastShotTime;
-    private Renderer collarRend;
+    private Renderer _collarRend;
 
     // Start is called before the first frame update
     void Start()
     {
         collar = transform.Find("Collar").gameObject;
-        collarRend = collar.GetComponent<Renderer>();
+        _collarRend = collar.GetComponent<Renderer>();
 
         SetType(_type);
 
@@ -80,7 +80,7 @@ public class Weapon : MonoBehaviour
             this.gameObject.SetActive(true);
         }
         def = Main.GetWeaponDefinition(_type);
-        collarRend.material.color = def.color;
+        _collarRend.material.color = def.color;
         lastShotTime = 0;
     }
 
