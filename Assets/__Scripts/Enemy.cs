@@ -20,4 +20,18 @@ public class Enemy : MonoBehaviour
     {
         Move();
     }
+
+    void OnCollisionEnter( Collision coll )
+    {
+        GameObject otherGO = coll.gameObject;
+        if (otherGO.tag == "ProjectileHero")
+        {
+            Destroy(otherGO);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Enemy hit by: " + otherGO.name);
+        }
+    }
 }

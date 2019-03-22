@@ -61,7 +61,9 @@
      <Compile Include="Assets\__Scripts\Enemy2.cs" />
      <Compile Include="Assets\__Scripts\Hero.cs" />
      <Compile Include="Assets\__Scripts\Main.cs" />
+     <Compile Include="Assets\__Scripts\Projectile.cs" />
      <Compile Include="Assets\__Scripts\Shield.cs" />
+     <Compile Include="Assets\__Scripts\Weapon.cs" />
      <None Include="Assets\_Materials\UnlitAlpha.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/zhuke/Documents/2nd Year/Second Semester/Software Design/SHUMP Game/SE2250_Project_eng72_vchopra5_whenning_kzhu53/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
