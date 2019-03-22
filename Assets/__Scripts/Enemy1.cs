@@ -7,6 +7,7 @@ public class Enemy1 : Enemy
 
     public void Start()
     {
+        health = 1f;
        _leftOrRight = (int)Random.Range(0, 2);
     }
 
