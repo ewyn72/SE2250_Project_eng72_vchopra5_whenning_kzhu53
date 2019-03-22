@@ -91,6 +91,7 @@ public class Hero : MonoBehaviour
             if (value < 0)
             {
                 Destroy(this.gameObject);
+                ScoreManager.SM.updateHighScore();
             }
 
             Main.S.DelayedRestart(gameRestartDelay);

@@ -13,6 +13,7 @@ public class Enemy2 : Enemy
     public void Start()
     {
         health = 3f;
+        score = 150f;
         speed = 20;
         _x0 = transform.position.x;
         _birthtime = Time.time;

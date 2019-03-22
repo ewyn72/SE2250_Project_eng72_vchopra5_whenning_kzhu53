@@ -67,6 +67,7 @@ public class Enemy : MonoBehaviour
                 if (health <= 0)
                 {
                     Destroy(this.gameObject);
+                    ScoreManager.SM.updateCurrScore(score);
                 }
 
                 Destroy(otherGO);
