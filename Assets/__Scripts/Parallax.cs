@@ -5,7 +5,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     [Header("Set in Inspector")]
-    public GameObject poi;
+    public GameObject pointOfInterest;
     public GameObject[] panels;
     public float scrollSpeed = -30f;
 
@@ -29,9 +29,9 @@ public class Parallax : MonoBehaviour
         float tY, tX = 0;
         tY = Time.time * scrollSpeed % _panelHt + (_panelHt * 0.5f);
 
-        if (poi != null)
+        if (pointOfInterest != null)
         {
-            tX = -poi.transform.position.x * motionMult;
+            tX = -pointOfInterest.transform.position.x * motionMult;
         }
 
         panels[0].transform.position = new Vector3(tX, tY, _depth);

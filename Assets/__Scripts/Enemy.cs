@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public float damageDoneTime;
     public bool notifiedOfDestruction = false;
 
+    //Set the enemy color
     void Awake()
     {
         _bndCheck = GetComponent<BoundsCheck>();
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //Move the enemy
     public virtual void Move()
     {
         Vector3 position = this.transform.position;
@@ -39,6 +41,7 @@ public class Enemy : MonoBehaviour
         this.transform.position = position;
     }
 
+    //Every frame, move the enemy and remove the red colour if needed
     public void Update()
     {
         Move();
@@ -49,19 +52,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+   
     void OnCollisionEnter( Collision coll )
     {
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)
         {
+            //If it collides with the projectile, subtract health. If health < 0, destroy
             case "ProjectileHero":
-                Projectile p = otherGO.GetComponent<Projectile>();
+                Projectile projectile = otherGO.GetComponent<Projectile>();
                 if (!(_bndCheck.isOnScreen))
                 {
                     Destroy(otherGO);
                     break;
                 }
-                health -= Main.GetWeaponDefinition(p.type).damageOnHit;
+                health -= Main.GetWeaponDefinition(projectile.type).damageOnHit;
                 ShowDamage();
 
                 if (health <= 0)
@@ -72,13 +77,14 @@ public class Enemy : MonoBehaviour
 
                 Destroy(otherGO);
                 break;
-
+                //If it collides with the non-projectile, then print debug message
             default:
                 Debug.Log("Enemy hit by non-ProjectileHero: " + otherGO.name);
                 break;
         }
     }
 
+    //Switch color to red for a given time
     void ShowDamage()
     {
         foreach(Material m in materials)
@@ -89,6 +95,7 @@ public class Enemy : MonoBehaviour
         damageDoneTime = Time.time + showDamageDuration;
     }
 
+    //Switch color to original
     void UnShowDamage()
     {
         for (int i = 0; i < materials.Length; i++)

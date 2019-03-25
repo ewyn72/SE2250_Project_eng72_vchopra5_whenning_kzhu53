@@ -5,6 +5,7 @@ public class Enemy1 : Enemy
 {
     private int _leftOrRight = 0;
 
+    //Set health and score, and whether it moves left or right
     public void Start()
     {
         health = 2f;
@@ -13,6 +14,7 @@ public class Enemy1 : Enemy
     }
 
 
+    //Move diagonally
     public override void Move()
     {
         Vector3 position = this.transform.position;

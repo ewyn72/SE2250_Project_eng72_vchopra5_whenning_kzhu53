@@ -12,12 +12,13 @@ public class Shield : MonoBehaviour
 
     Material mat;
 
+
     void Start()
     {
         mat = GetComponent<Renderer>().material;
     }
 
-
+    //Update the shield level
     void Update()
     {
         int currLevel = Mathf.FloorToInt(Hero.PLAYER_HERO.shieldLevel);

@@ -60,13 +60,15 @@ public class Hero : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        
+
+        //If collide with last collision
         if (go == _lastTriggerGo)
         {
             return;
         }
         _lastTriggerGo = go;
 
+        //If collide with enemy
         if (go.tag == "Enemy")
         {
             shieldLevel--;
@@ -78,6 +80,7 @@ public class Hero : MonoBehaviour
         }
     }
 
+    //Get the shield level
     public float shieldLevel
     {
         get
@@ -92,7 +95,7 @@ public class Hero : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 ScoreManager.SCORE_MANAGER.updateHighScore();
-                Main.S.DelayedRestart(gameRestartDelay);
+                Main.MAIN_SINGLETON.DelayedRestart(gameRestartDelay);
             }
         }
     }

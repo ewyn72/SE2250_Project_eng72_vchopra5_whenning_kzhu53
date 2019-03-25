@@ -10,6 +10,7 @@ public class Enemy2 : Enemy
     private float _x0;
     private float _birthtime;
 
+    //Set health, score and how long it has been alive for
     public void Start()
     {
         health = 3f;
@@ -20,6 +21,7 @@ public class Enemy2 : Enemy
     }
 
 
+    //Move in a sinusoidal pattern
     public override void Move()
     {
         Vector3 tempPos = transform.position;

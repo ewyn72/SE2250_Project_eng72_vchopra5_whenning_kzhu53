@@ -5,6 +5,7 @@ using UnityEngine;
 public class Utils : MonoBehaviour
 {
 
+    //Get the materials
     static public Material[] GetAllMaterials( GameObject go)
     {
         Renderer[] rends = go.GetComponentsInChildren<Renderer>();

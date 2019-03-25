@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private WeaponType _type;
 
+    //Get the type of the weapon
     public WeaponType type
     {
         get
@@ -32,11 +33,6 @@ public class Projectile : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +42,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    //Set the weapon type
     public void SetType(WeaponType eType)
     {
         _type = eType;

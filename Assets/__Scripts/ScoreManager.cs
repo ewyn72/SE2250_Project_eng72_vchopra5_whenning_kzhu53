@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     private float _highS;
     private float _currS;
 
+    //Set highscore
     void Awake()
     {
         _highS = (float) PlayerPrefs.GetInt("highscore", 0);
@@ -26,12 +27,14 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    //update current score
     public void updateCurrScore(float score)
     {
         _currS += score;
         currentScore.text = "Current Score: " + _currS;
     }
 
+    //update the high score
     public void updateHighScore()
     {
         if(_highS < _currS)
@@ -46,6 +49,7 @@ public class ScoreManager : MonoBehaviour
         highScore.text = "HighScore: " + _highS;
     }
 
+    //reset the high score
     public void resetHighscore()
     {
         PlayerPrefs.SetInt("highscore", 0);

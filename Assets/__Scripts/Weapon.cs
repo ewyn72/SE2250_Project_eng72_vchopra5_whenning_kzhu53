@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
 
     [Header("Set Dynamically")]     [SerializeField]
     private WeaponType _type = WeaponType.none;
-    public WeaponDefinition def;
+    public WeaponDefinition weaponDef;
     public GameObject collar;
     public float lastShotTime;
     private Renderer _collarRend;
@@ -55,6 +55,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    //Get weapon type
     public WeaponType type
     {
         get
@@ -67,6 +68,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    //Set weapon type
     public void SetType(WeaponType wt)
     {
         _type = wt;
@@ -79,21 +81,22 @@ public class Weapon : MonoBehaviour
         {
             this.gameObject.SetActive(true);
         }
-        def = Main.GetWeaponDefinition(_type);
-        _collarRend.material.color = def.color;
+        weaponDef = Main.GetWeaponDefinition(_type);
+        _collarRend.material.color = weaponDef.color;
         lastShotTime = 0;
     }
 
+    //Fire a projectile
     public void Fire()
     {
         if (!gameObject.activeInHierarchy) return;
 
-        if (Time.time - lastShotTime < def.delayBetweenShots)
+        if (Time.time - lastShotTime < weaponDef.delayBetweenShots)
         {
             return;
         }
-        Projectile p;
-        Vector3 vel = Vector3.up * def.velocity;
+        Projectile projectile;
+        Vector3 vel = Vector3.up * weaponDef.velocity;
         if (transform.up.y < 0)
         {
             vel.y = -vel.y;
@@ -102,26 +105,27 @@ public class Weapon : MonoBehaviour
         switch (type)
         {
             case WeaponType.blaster:
-                p = MakeProjectile();
-                p.rigid.velocity = vel;
+                projectile = MakeProjectile();
+                projectile.rigid.velocity = vel;
                 break;
 
             case WeaponType.spread:
-                p = MakeProjectile();
-                p.rigid.velocity = vel;
-                p = MakeProjectile();
-                p.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
-                p = MakeProjectile();
-                p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                projectile = MakeProjectile();
+                projectile.rigid.velocity = vel;
+                projectile = MakeProjectile();
+                projectile.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
+                projectile.rigid.velocity = projectile.transform.rotation * vel;
+                projectile = MakeProjectile();
+                projectile.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
+                projectile.rigid.velocity = projectile.transform.rotation * vel;
                 break;
         }
     }
 
+    //Make a projectile
     public Projectile MakeProjectile()
     {
-        GameObject go = Instantiate<GameObject>(def.projectilePrefab);
+        GameObject go = Instantiate<GameObject>(weaponDef.projectilePrefab);
         if ( transform.parent.gameObject.tag == "Hero")
         {
             go.tag = "ProjectileHero";
@@ -135,11 +139,11 @@ public class Weapon : MonoBehaviour
 
         go.transform.position = collar.transform.position;
         go.transform.SetParent(PROJECTILE_ANCHOR, true);
-        Projectile p = go.GetComponent<Projectile>();
-        p.type = type;
+        Projectile projectile = go.GetComponent<Projectile>();
+        projectile.type = type;
         lastShotTime = Time.time;
 
-        return p;
+        return projectile;
     }
 
     // Update is called once per frame

@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
-    static public Main S;
+    static public Main MAIN_SINGLETON;
     static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
     private float _time = 0.0f;
 
     public float spawnEverySecond = 2.0f;
     public GameObject[] prefabEnemies;
     public WeaponDefinition[] weaponDefinitions;
+
     void Awake()
     {
-        S = this;
+        if (MAIN_SINGLETON == null)
+        {
+            MAIN_SINGLETON = this;
+        }
+        else
+        {
+            print("Main singleton already created.");
+        }
+
 
         WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition>();
         foreach (WeaponDefinition def in weaponDefinitions)
@@ -49,6 +58,7 @@ public class Main : MonoBehaviour
         }
     }
 
+    //Delay the restart of the game
     public void DelayedRestart(float delay)
     {
         Invoke("Restart", delay);
@@ -59,6 +69,7 @@ public class Main : MonoBehaviour
         SceneManager.LoadScene("_Scene_0");
     }
 
+    //Get the weapon definition
     static public WeaponDefinition GetWeaponDefinition (WeaponType wt)
     {
         if (WEAP_DICT.ContainsKey(wt))
