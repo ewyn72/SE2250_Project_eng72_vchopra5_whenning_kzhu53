@@ -8,19 +8,19 @@ public class DeleteEnemy : MonoBehaviour
     public float camWidth;
     public float camHeight;
 
-    BoundsCheck bnd;
+    private BoundsCheck _bnd;
 
     void Awake()
     {
         camHeight = Camera.main.orthographicSize;
         camWidth = camHeight * Camera.main.aspect;
-        bnd = GetComponent<BoundsCheck>();
+        _bnd = GetComponent<BoundsCheck>();
     }
 
     void LateUpdate()
     {
         Vector3 pos = transform.position;
-        if(bnd != null && !bnd.isOnScreen && !bnd.offUp)
+        if(_bnd != null && !_bnd.isOnScreen && !_bnd.offUp)
         {
             Destroy(gameObject);
         }

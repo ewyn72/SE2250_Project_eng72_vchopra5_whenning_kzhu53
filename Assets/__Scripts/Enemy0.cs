@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Enemy0 : Enemy
 {
+    public override void Move()
+    {
+        base.Move();
+    }
 
 }

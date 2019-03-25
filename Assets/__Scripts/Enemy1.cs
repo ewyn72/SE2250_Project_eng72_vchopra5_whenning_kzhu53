@@ -7,14 +7,9 @@ public class Enemy1 : Enemy
 
     public void Start()
     {
-        health = 1f;
+        health = 2f;
         score = 50f;
        _leftOrRight = (int)Random.Range(0, 2);
-    }
-
-    public void Update()
-    {
-        Move();
     }
 
 
