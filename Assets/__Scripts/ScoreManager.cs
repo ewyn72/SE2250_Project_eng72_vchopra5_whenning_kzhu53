@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    static public ScoreManager SM;
+    static public ScoreManager SCORE_MANAGER; //Singleton
     public Text highScore;
     public Text currentScore;
     private float _highS;
@@ -16,7 +16,14 @@ public class ScoreManager : MonoBehaviour
         _highS = (float) PlayerPrefs.GetInt("highscore", 0);
         highScore.text = "HighScore: " + _highS;
         _currS = 0;
-        SM = this;
+        if (SCORE_MANAGER == null)
+        {
+            SCORE_MANAGER = this;
+        }
+        else
+        {
+            print("Score Manager already created.");
+        }
     }
 
     public void updateCurrScore(float score)

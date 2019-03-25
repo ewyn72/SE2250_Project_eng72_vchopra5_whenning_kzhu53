@@ -20,7 +20,7 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
-        int currLevel = Mathf.FloorToInt(Hero.S.shieldLevel);
+        int currLevel = Mathf.FloorToInt(Hero.PLAYER_HERO.shieldLevel);
         if(levelShown != currLevel)
         {
             levelShown = currLevel;

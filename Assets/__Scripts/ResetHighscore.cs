@@ -18,6 +18,6 @@ public class ResetHighscore : MonoBehaviour
 
     public void resetHighscore()
     {
-        ScoreManager.SM.resetHighscore();
+        ScoreManager.SCORE_MANAGER.resetHighscore();
     }
 }

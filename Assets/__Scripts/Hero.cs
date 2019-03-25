@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    static public Hero S;
+    static public Hero PLAYER_HERO;
 
     private GameObject _lastTriggerGo = null;
 
@@ -25,9 +25,9 @@ public class Hero : MonoBehaviour
 
     void Awake()
     {
-        if (S == null)
+        if (PLAYER_HERO == null)
         {
-            S = this;
+            PLAYER_HERO = this;
         }
         else
         {
@@ -91,7 +91,7 @@ public class Hero : MonoBehaviour
             if (value < 0)
             {
                 Destroy(this.gameObject);
-                ScoreManager.SM.updateHighScore();
+                ScoreManager.SCORE_MANAGER.updateHighScore();
                 Main.S.DelayedRestart(gameRestartDelay);
             }
         }
