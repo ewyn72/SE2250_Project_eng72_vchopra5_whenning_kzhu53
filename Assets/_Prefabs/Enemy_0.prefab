@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2516586005926711629}
   - component: {fileID: 2516586005926711666}
   - component: {fileID: 2516586005926711667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2516586006011500376}
   - component: {fileID: 2516586006011500377}
   - component: {fileID: 2516586006011500382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,9 +196,9 @@ GameObject:
   - component: {fileID: 2516586006188414459}
   - component: {fileID: 2516586006188414453}
   - component: {fileID: 5405805218275090699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 2516586006724767446}
   - component: {fileID: 2516586006724767447}
   - component: {fileID: 2516586006724767444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
