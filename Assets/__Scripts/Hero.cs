@@ -92,9 +92,8 @@ public class Hero : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 ScoreManager.SM.updateHighScore();
+                Main.S.DelayedRestart(gameRestartDelay);
             }
-
-            Main.S.DelayedRestart(gameRestartDelay);
         }
     }
 }
