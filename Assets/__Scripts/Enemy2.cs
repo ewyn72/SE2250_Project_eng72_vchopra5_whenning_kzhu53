@@ -5,7 +5,7 @@ public class Enemy2 : Enemy
 {
     public float waveFrequency = 2;
     public float waveWidth = 8;
-    public float waveRotY = 45;
+    public float waveRotY = 20;
 
     private float _x0;
     private float _birthtime;

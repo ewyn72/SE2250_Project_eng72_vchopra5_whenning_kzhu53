@@ -426,7 +426,7 @@ MonoBehaviour:
   prefabEnemies:
   - {fileID: 2516586006188414462, guid: 46c23bd61f0c09f4e8599b7d688e21ae, type: 3}
   - {fileID: 3508336672919086552, guid: 14e2622d9460a5b4bbd9a57ec1d4abf6, type: 3}
-  - {fileID: 3707159307648709493, guid: 7d24ee024170cad40ac301b2c251ca70, type: 3}
+  - {fileID: 979884120, guid: 9fb420701077f48f38e2fb85d5434545, type: 3}
   weaponDefinitions:
   - type: 1
     letter: B
