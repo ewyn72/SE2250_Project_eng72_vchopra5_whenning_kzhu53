@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WeaponType
-{
-    none,
-    blaster,
-    spread
-}
+
 
 [System.Serializable]
 public class WeaponDefinition

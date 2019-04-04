@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum WeaponType
+{
+    none,
+    blaster,
+    spread
+}
+
 public class Main : MonoBehaviour
 {
     static public Main MAIN_SINGLETON;
