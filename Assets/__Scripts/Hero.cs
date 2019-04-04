@@ -15,6 +15,7 @@ public class Hero : MonoBehaviour
     public float gameRestartDelay = 2f;
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
+    public bool start = true;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -46,6 +47,17 @@ public class Hero : MonoBehaviour
         pos.x += xAxis * speed * Time.deltaTime;
         pos.y += yAxis * speed * Time.deltaTime;
         transform.position = pos;
+
+        // Cool fly-in at start
+        if (start)
+        {
+            pos.y += speed * Time.deltaTime;
+            transform.position = pos;
+        }
+        if (pos.y >= 0)
+        {
+            start = false;
+        }
 
         // Ship Rotation
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
