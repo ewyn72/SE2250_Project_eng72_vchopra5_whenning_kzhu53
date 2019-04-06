@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -419,7 +419,7 @@ MonoBehaviour:
   - {fileID: 3508336672919086552, guid: 14e2622d9460a5b4bbd9a57ec1d4abf6, type: 3}
   - {fileID: 979884120, guid: 9fb420701077f48f38e2fb85d5434545, type: 3}
   prefabHeroes:
-  - {fileID: 930690990, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
+  - {fileID: 8843934151088542983, guid: b98073b3f3c3b406099978c886610252, type: 3}
   - {fileID: 3858859268294338655, guid: b0db0b39365a84dabbcc6f4b8dbdf90c, type: 3}
   weaponDefinitions:
   - type: 1

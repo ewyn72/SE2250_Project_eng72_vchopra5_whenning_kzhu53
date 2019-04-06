@@ -60,7 +60,7 @@ public class Hero : MonoBehaviour
         }
 
         // Ship Rotation
-        transform.rotation = Quaternion.Euler(yAxis * pitchMult + 90, xAxis * rollMult + 180, 0);
+        transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
 
         if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
         {
