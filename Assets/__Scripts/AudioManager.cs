@@ -31,8 +31,9 @@ public class AudioManager : MonoBehaviour
     {
         _audioClips = new AudioClip[] {(AudioClip)Resources.Load("Audio/menu_selection_click"),
             (AudioClip)Resources.Load("Audio/menu_selection_hover"),
-            Resources.Load("Audio/StarWarsMainTheme") as AudioClip,
-            (AudioClip)Resources.Load("Audio/TheImperialMarch") };
+            (AudioClip) Resources.Load("Audio/StarWarsMainTheme"),
+            (AudioClip)Resources.Load("Audio/TheImperialMarch"),
+            (AudioClip)Resources.Load("Audio/Blaster-Solo") };
         _audioSource = gameObject.AddComponent<AudioSource>();
         print(_audioSource);
         _audioSource.loop = true;
@@ -62,12 +63,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void playHover()
+    public void PlayHover()
     {
         _audioSource.PlayOneShot(_audioClips[1]);
     }
 
-    public void playClick()
+    public void PlayClick()
     {
         _audioSource.PlayOneShot(_audioClips[0]);
     }
@@ -90,5 +91,10 @@ public class AudioManager : MonoBehaviour
         {
             return _MANAGE_AUDIO;
         }
+    }
+
+    public void Shoot()
+    {
+        _audioSource.PlayOneShot(_audioClips[4]);
     }
 }

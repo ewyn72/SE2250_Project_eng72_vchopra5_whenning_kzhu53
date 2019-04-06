@@ -92,6 +92,7 @@ public class Weapon : MonoBehaviour
         }
         Projectile projectile;
         Vector3 vel = Vector3.up * weaponDef.velocity;
+        AudioManager.AUDIO_MANAGER.Shoot();
         if (transform.up.y < 0)
         {
             vel.y = -vel.y;

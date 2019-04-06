@@ -6,10 +6,10 @@ public class ButtonSound : MonoBehaviour{
 
     public void HoverSound()
     {
-        AudioManager.AUDIO_MANAGER.playHover();
+        AudioManager.AUDIO_MANAGER.PlayHover();
     }
     public void ClickSound()
     {
-        AudioManager.AUDIO_MANAGER.playClick();
+        AudioManager.AUDIO_MANAGER.PlayClick();
     }
 }
