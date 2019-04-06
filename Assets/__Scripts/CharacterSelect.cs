@@ -24,11 +24,13 @@ public class CharacterSelect : MonoBehaviour
     {
         luke = true;
         solo = false;
+        AudioManager.AUDIO_MANAGER.CharacterSelect("luke");
     }
 
     public void ToggleSolo()
     {
         solo = true;
         luke = false;
+        AudioManager.AUDIO_MANAGER.CharacterSelect("han");
     }
 }

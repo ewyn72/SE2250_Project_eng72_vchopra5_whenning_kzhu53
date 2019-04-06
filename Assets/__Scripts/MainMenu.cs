@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Start()
     {
-        AudioManager.AUDIO_MANAGER.switchScene();
+        AudioManager.AUDIO_MANAGER.SwitchScene();
     }
     public void PlayGame ()
     {

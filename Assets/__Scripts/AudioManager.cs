@@ -33,14 +33,16 @@ public class AudioManager : MonoBehaviour
             (AudioClip)Resources.Load("Audio/menu_selection_hover"),
             (AudioClip) Resources.Load("Audio/StarWarsMainTheme"),
             (AudioClip)Resources.Load("Audio/TheImperialMarch"),
-            (AudioClip)Resources.Load("Audio/Blaster-Solo") };
+            (AudioClip)Resources.Load("Audio/Blaster-Solo"),
+            (AudioClip)Resources.Load("Audio/hansolo_badfeeling"),
+            (AudioClip)Resources.Load("Audio/luke_greetings")};
         _audioSource = gameObject.AddComponent<AudioSource>();
         print(_audioSource);
         _audioSource.loop = true;
         DontDestroyOnLoad(gameObject);
     }
 
-    public void switchScene()
+    public void SwitchScene()
     {
         string scene_name = SceneManager.GetActiveScene().name;
         switch (scene_name)
@@ -83,6 +85,19 @@ public class AudioManager : MonoBehaviour
         }
         _audioSource.Stop();
         _audioSource.volume = startVolume;
+    }
+
+    public void CharacterSelect(string name)
+    {
+        switch (name)
+        {
+            case "han":
+                _audioSource.PlayOneShot(_audioClips[5]);
+                break;
+            case "luke":
+                _audioSource.PlayOneShot(_audioClips[6]);
+                break;
+        }
     }
 
     public static AudioManager AUDIO_MANAGER

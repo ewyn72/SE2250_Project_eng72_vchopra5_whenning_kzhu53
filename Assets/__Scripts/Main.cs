@@ -41,7 +41,7 @@ public class Main : MonoBehaviour
             Instantiate<GameObject>(prefabHeroes[1]);
         }
 
-        AudioManager.AUDIO_MANAGER.switchScene();
+        AudioManager.AUDIO_MANAGER.SwitchScene();
 
         WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition>();
         foreach (WeaponDefinition def in weaponDefinitions)
