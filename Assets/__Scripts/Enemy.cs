@@ -44,14 +44,11 @@ public class Enemy : MonoBehaviour
     //Every frame, move the enemy and remove the red colour if needed
     public void Update()
     {
-        if (!Pause.gamePaused)
-        {
-            Move();
+        Move();
 
-            if (showingDamage && Time.time > damageDoneTime)
-            {
-                UnShowDamage();
-            }
+        if (showingDamage && Time.time > damageDoneTime)
+        {
+            UnShowDamage();
         }
     }
 
