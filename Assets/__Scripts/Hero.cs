@@ -39,32 +39,35 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get info from input class
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
-
-        Vector3 pos = transform.position;
-        pos.x += xAxis * speed * Time.deltaTime;
-        pos.y += yAxis * speed * Time.deltaTime;
-        transform.position = pos;
-
-        // Cool fly-in at start
-        if (start)
+        if (!Pause.gamePaused)
         {
-            pos.y += speed * Time.deltaTime;
+            // Get info from input class
+            float xAxis = Input.GetAxis("Horizontal");
+            float yAxis = Input.GetAxis("Vertical");
+
+            Vector3 pos = transform.position;
+            pos.x += xAxis * speed * Time.deltaTime;
+            pos.y += yAxis * speed * Time.deltaTime;
             transform.position = pos;
-        }
-        if (pos.y >= 0)
-        {
-            start = false;
-        }
 
-        // Ship Rotation
-        transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
+            // Cool fly-in at start
+            if (start)
+            {
+                pos.y += speed * Time.deltaTime;
+                transform.position = pos;
+            }
+            if (pos.y >= 0)
+            {
+                start = false;
+            }
 
-        if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
-        {
-            fireDelegate();
+            // Ship Rotation
+            transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
+
+            if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+            {
+                fireDelegate();
+            }
         }
     }
 

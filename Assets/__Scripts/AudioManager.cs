@@ -37,10 +37,14 @@ public class AudioManager : MonoBehaviour
             (AudioClip)Resources.Load("Audio/hansolo_gorgeousguy"),
             (AudioClip)Resources.Load("Audio/luke_greetings"),
             (AudioClip)Resources.Load("Audio/blaster_multiple")};
-        _audioSource = gameObject.AddComponent<AudioSource>();
-        print(_audioSource);
-        _audioSource.loop = true;
-        DontDestroyOnLoad(gameObject);
+        if (_audioSource == null)
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.loop = true;
+            DontDestroyOnLoad(gameObject);
+            gameObject.AddComponent<AudioListener>();
+        }
+
     }
 
     public void SwitchScene()
@@ -98,6 +102,18 @@ public class AudioManager : MonoBehaviour
             case "luke":
                 _audioSource.PlayOneShot(_audioClips[6]);
                 break;
+        }
+    }
+
+    public void Mute()
+    {
+        if(_audioSource.volume == 0.0f)
+        {
+            _audioSource.volume = 0.7f;
+        }
+        else
+        {
+            _audioSource.volume = 0;
         }
     }
 

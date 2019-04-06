@@ -54,26 +54,29 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _time += Time.deltaTime;
-        if (_time >= spawnEverySecond)
+        if (!Pause.gamePaused)
         {
-            _time = _time - spawnEverySecond;
-            GameObject enemy;
-            int enemyChoice = (int)Random.Range(1, 4);
-            if (enemyChoice == 1)
+            _time += Time.deltaTime;
+            if (_time >= spawnEverySecond)
             {
-                enemy = Instantiate<GameObject>(prefabEnemies[0]);
+                _time = _time - spawnEverySecond;
+                GameObject enemy;
+                int enemyChoice = (int)Random.Range(1, 4);
+                if (enemyChoice == 1)
+                {
+                    enemy = Instantiate<GameObject>(prefabEnemies[0]);
+                }
+                else if (enemyChoice == 2)
+                {
+                    enemy = Instantiate<GameObject>(prefabEnemies[1]);
+                }
+                else
+                {
+                    enemy = Instantiate<GameObject>(prefabEnemies[2]);
+                }
+                float xPos = Random.Range(-30, 30);
+                enemy.transform.position = new Vector3(xPos, 45f);
             }
-            else if (enemyChoice == 2)
-            {
-                enemy = Instantiate<GameObject>(prefabEnemies[1]);
-            }
-            else
-            {
-                enemy = Instantiate<GameObject>(prefabEnemies[2]);
-            }
-            float xPos = Random.Range(-30, 30);
-            enemy.transform.position = new Vector3(xPos, 45f);
         }
     }
 
