@@ -32,7 +32,13 @@ public class Main : MonoBehaviour
             print("Main singleton already created.");
         }
 
-        if (CharacterSelect.CHAR_SINGLETON.luke)
+        // If you skipped the main menu and started on game scene
+        if (CharacterSelect.CHAR_SINGLETON == null)
+        {
+            Instantiate<GameObject>(prefabHeroes[0]);
+        }
+        // otherwise char singleton exists
+        else if (CharacterSelect.CHAR_SINGLETON.luke)
         {
             Instantiate<GameObject>(prefabHeroes[0]);
         }
@@ -41,13 +47,13 @@ public class Main : MonoBehaviour
             Instantiate<GameObject>(prefabHeroes[1]);
         }
 
-        AudioManager.AUDIO_MANAGER.SwitchScene();
-
         WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition>();
         foreach (WeaponDefinition def in weaponDefinitions)
         {
             WEAP_DICT[def.type] = def;
         }
+
+        AudioManager.AUDIO_MANAGER.SwitchScene();
     }
 
     // Update is called once per frame
