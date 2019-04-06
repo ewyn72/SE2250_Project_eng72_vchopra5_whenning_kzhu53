@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: ae03e0ea8115d4ab7b446458a34c0bb5, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: ae03e0ea8115d4ab7b446458a34c0bb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -565,9 +565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a81fa6785b424aaf521a4b54b95c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 446485197}
-  hoverFX: {fileID: 8300000, guid: c9e4d2d5898e142049298d0484b6cb4a, type: 3}
-  clickFX: {fileID: 8300000, guid: ad6c5f9f065be4913b8fe23185c164cb, type: 3}
 --- !u!1 &604542743
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,8 +598,8 @@ RectTransform:
   - {fileID: 1331261983}
   - {fileID: 1749138716}
   - {fileID: 1016836071}
+  - {fileID: 1280607487}
   - {fileID: 432306545}
-  - {fileID: 1960987640}
   m_Father: {fileID: 706764834}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -623,6 +620,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1579cc0c9334643a5b7ee8e28d29e580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &635287112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7359926730695133440, guid: 138f0bf2e56aa458c87c8b79688c3043,
+    type: 3}
+  m_PrefabInstance: {fileID: 1280607486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &706764830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,9 +1690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a81fa6785b424aaf521a4b54b95c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 1272961885}
-  hoverFX: {fileID: 8300000, guid: c9e4d2d5898e142049298d0484b6cb4a, type: 3}
-  clickFX: {fileID: 8300000, guid: ad6c5f9f065be4913b8fe23185c164cb, type: 3}
 --- !u!114 &1272961887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,6 +1738,101 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!1001 &1280607486
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 604542744}
+    m_Modifications:
+    - target: {fileID: 7359926730695133440, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_Name
+      value: star-wars-x-wing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359926730695133440, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -800
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.24999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.066987306
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9330127
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 80
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 138f0bf2e56aa458c87c8b79688c3043, type: 3}
+--- !u!4 &1280607487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
+    type: 3}
+  m_PrefabInstance: {fileID: 1280607486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1331261982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,7 +2004,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1960987641}
+        - m_Target: {fileID: 635287112}
           m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
@@ -1937,7 +2032,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1960987641}
+        - m_Target: {fileID: 635287112}
           m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
@@ -1965,6 +2060,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 635287112}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -1980,9 +2086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a81fa6785b424aaf521a4b54b95c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 1331261989}
-  hoverFX: {fileID: 8300000, guid: c9e4d2d5898e142049298d0484b6cb4a, type: 3}
-  clickFX: {fileID: 8300000, guid: ad6c5f9f065be4913b8fe23185c164cb, type: 3}
 --- !u!82 &1331261989
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2151,11 +2254,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7359926730695133440, guid: 138f0bf2e56aa458c87c8b79688c3043,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 138f0bf2e56aa458c87c8b79688c3043, type: 3}
 --- !u!4 &1363391534 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
+  m_CorrespondingSourceObject: {fileID: 5468445267423576480, guid: 138f0bf2e56aa458c87c8b79688c3043,
     type: 3}
   m_PrefabInstance: {fileID: 1363391533}
   m_PrefabAsset: {fileID: 0}
@@ -2309,9 +2417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a81fa6785b424aaf521a4b54b95c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 1388739418}
-  hoverFX: {fileID: 8300000, guid: c9e4d2d5898e142049298d0484b6cb4a, type: 3}
-  clickFX: {fileID: 8300000, guid: ad6c5f9f065be4913b8fe23185c164cb, type: 3}
 --- !u!114 &1388739420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2749,9 +2854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a81fa6785b424aaf521a4b54b95c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 1420835661}
-  hoverFX: {fileID: 8300000, guid: c9e4d2d5898e142049298d0484b6cb4a, type: 3}
-  clickFX: {fileID: 8300000, guid: ad6c5f9f065be4913b8fe23185c164cb, type: 3}
 --- !u!1 &1479280660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,6 +3314,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 432306546}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -3227,9 +3340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a81fa6785b424aaf521a4b54b95c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 1749138722}
-  hoverFX: {fileID: 8300000, guid: c9e4d2d5898e142049298d0484b6cb4a, type: 3}
-  clickFX: {fileID: 8300000, guid: ad6c5f9f065be4913b8fe23185c164cb, type: 3}
 --- !u!82 &1749138722
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3532,7 +3642,7 @@ Transform:
   - {fileID: 1363391534}
   - {fileID: 2044660291}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1910951114
 GameObject:
@@ -3694,107 +3804,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910951114}
   m_CullTransparentMesh: 0
---- !u!1001 &1960987639
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 604542744}
-    m_Modifications:
-    - target: {fileID: 6639463683579529931, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_Name
-      value: star-wars-x-wing
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639463683579529931, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.000015259
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -800
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.27781588
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.36497167
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.1150751
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8811196
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 80
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 138f0bf2e56aa458c87c8b79688c3043, type: 3}
---- !u!4 &1960987640 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 895421517469115022, guid: 138f0bf2e56aa458c87c8b79688c3043,
-    type: 3}
-  m_PrefabInstance: {fileID: 1960987639}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1960987641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6639463683579529931, guid: 138f0bf2e56aa458c87c8b79688c3043,
-    type: 3}
-  m_PrefabInstance: {fileID: 1960987639}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2044660290
 PrefabInstance:
   m_ObjectHideFlags: 0
