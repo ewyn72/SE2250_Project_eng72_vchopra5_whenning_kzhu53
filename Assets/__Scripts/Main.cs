@@ -18,6 +18,7 @@ public class Main : MonoBehaviour
 
     public float spawnEverySecond = 2.0f;
     public GameObject[] prefabEnemies;
+    public GameObject[] prefabHeroes;
     public WeaponDefinition[] weaponDefinitions;
 
     void Awake()
@@ -31,6 +32,14 @@ public class Main : MonoBehaviour
             print("Main singleton already created.");
         }
 
+        if (CharacterSelect.CHAR_SINGLETON.luke)
+        {
+            Instantiate<GameObject>(prefabHeroes[0]);
+        }
+        else
+        {
+            Instantiate<GameObject>(prefabHeroes[1]);
+        }
 
         WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition>();
         foreach (WeaponDefinition def in weaponDefinitions)
