@@ -1173,7 +1173,7 @@ MonoBehaviour:
   - {fileID: 1298119839673942222, guid: 944de1399fc0b429c853675981f0c43c, type: 3}
   prefabHeroes:
   - {fileID: 8843934151088542983, guid: b98073b3f3c3b406099978c886610252, type: 3}
-  - {fileID: 2575597313901124743, guid: ab1d70f451374415db2f97a860bcf0d0, type: 3}
+  - {fileID: 3858859268294338655, guid: b0db0b39365a84dabbcc6f4b8dbdf90c, type: 3}
   weaponDefinitions:
   - type: 1
     letter: B

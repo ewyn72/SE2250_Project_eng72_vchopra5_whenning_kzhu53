@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8843934151088542978}
   - component: {fileID: 8843934151088542977}
   - component: {fileID: 8843934151088542976}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: X-Wing
   m_TagString: Hero
   m_Icon: {fileID: 0}
@@ -103,10 +103,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: star-wars-x-wing 1
       objectReference: {fileID: 0}
-    - target: {fileID: 930690990, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 930690994, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -150,57 +146,6 @@ PrefabInstance:
     - target: {fileID: 930690994, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1350654538, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 433967449, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1931396536, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1467459291, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 403959720, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 511255866, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1034633874, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1207078989, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224021297, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9052194526105373788, guid: 99c607ad8100c482d969e5eda2842cfc,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157406908855816442, guid: 99c607ad8100c482d969e5eda2842cfc,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 602996377876102896, guid: 99c607ad8100c482d969e5eda2842cfc,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99c607ad8100c482d969e5eda2842cfc, type: 3}
