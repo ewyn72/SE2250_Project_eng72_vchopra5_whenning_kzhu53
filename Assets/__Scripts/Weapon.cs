@@ -92,7 +92,7 @@ public class Weapon : MonoBehaviour
         }
         Projectile projectile;
         Vector3 vel = Vector3.up * weaponDef.velocity;
-        AudioManager.AUDIO_MANAGER.Shoot();
+
         if (transform.up.y < 0)
         {
             vel.y = -vel.y;
@@ -103,6 +103,7 @@ public class Weapon : MonoBehaviour
             case WeaponType.blaster:
                 projectile = MakeProjectile();
                 projectile.rigid.velocity = vel;
+                AudioManager.AUDIO_MANAGER.Shoot("normal");
                 break;
 
             case WeaponType.spread:
@@ -114,6 +115,7 @@ public class Weapon : MonoBehaviour
                 projectile = MakeProjectile();
                 projectile.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 projectile.rigid.velocity = projectile.transform.rotation * vel;
+                AudioManager.AUDIO_MANAGER.Shoot("spread");
                 break;
         }
     }

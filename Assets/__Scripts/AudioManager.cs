@@ -34,8 +34,9 @@ public class AudioManager : MonoBehaviour
             (AudioClip) Resources.Load("Audio/StarWarsMainTheme"),
             (AudioClip)Resources.Load("Audio/TheImperialMarch"),
             (AudioClip)Resources.Load("Audio/Blaster-Solo"),
-            (AudioClip)Resources.Load("Audio/hansolo_badfeeling"),
-            (AudioClip)Resources.Load("Audio/luke_greetings")};
+            (AudioClip)Resources.Load("Audio/hansolo_gorgeousguy"),
+            (AudioClip)Resources.Load("Audio/luke_greetings"),
+            (AudioClip)Resources.Load("Audio/blaster_multiple")};
         _audioSource = gameObject.AddComponent<AudioSource>();
         print(_audioSource);
         _audioSource.loop = true;
@@ -108,8 +109,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot(string type)
     {
-        _audioSource.PlayOneShot(_audioClips[4]);
+        switch (type)
+        {
+            case "normal":
+                _audioSource.PlayOneShot(_audioClips[4]);
+                break;
+            case "spread":
+                _audioSource.PlayOneShot(_audioClips[7]);
+                break;
+        }
     }
 }
