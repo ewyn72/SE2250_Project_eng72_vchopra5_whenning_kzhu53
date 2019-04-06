@@ -56,10 +56,20 @@ public class AudioManager : MonoBehaviour
                 {
                     FadeOutAudio(3);
                     _audioSource.clip = _audioClips[3];
-                    _audioSource.PlayDelayed(3);
+                    _audioSource.PlayDelayed(1);
                 }
                 break;
         }
+    }
+
+    public void playHover()
+    {
+        _audioSource.PlayOneShot(_audioClips[1]);
+    }
+
+    public void playClick()
+    {
+        _audioSource.PlayOneShot(_audioClips[0]);
     }
 
     public void FadeOutAudio(int fadeTime)
