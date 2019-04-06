@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float score = 100f;
     public float health = 2f;
     public float showDamageDuration = 0.1f;
+    public float powerUpDropChance = 0.3f;
 
     public float radius = 1f;
 
@@ -74,6 +75,11 @@ public class Enemy : MonoBehaviour
 
                 if (health <= 0)
                 {
+                    if (!notifiedOfDestruction)
+                    {
+                        Main.MAIN_SINGLETON.ShipDestroyed(this);
+                    }
+                    notifiedOfDestruction = true;
                     Destroy(this.gameObject);
                     ScoreManager.SCORE_MANAGER.updateCurrScore(score);
                 }

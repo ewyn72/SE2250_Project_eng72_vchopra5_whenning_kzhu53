@@ -16,6 +16,7 @@ public class Enemy2 : Enemy
         health = 3f;
         score = 150f;
         speed = 20;
+        powerUpDropChance = 0.8f;
         _x0 = transform.position.x;
         _birthtime = Time.time;
     }

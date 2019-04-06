@@ -10,7 +10,8 @@ public class Enemy1 : Enemy
     {
         health = 2f;
         score = 50f;
-       _leftOrRight = (int)Random.Range(0, 2);
+        powerUpDropChance = 0.5f;
+        _leftOrRight = (int)Random.Range(0, 2);
     }
 
 

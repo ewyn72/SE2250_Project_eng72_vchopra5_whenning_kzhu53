@@ -20,6 +20,9 @@ public class Hero : MonoBehaviour
     [Header("Set Dynamically")]
     [SerializeField]
     private float _shieldLvl = 1;
+    private float _startInvin;
+    private float _InvinTime = 5f;
+    private bool _isInvincible = false;
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
@@ -39,7 +42,27 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (!Pause.gamePaused)
+=======
+        float timer = (Time.time - (_startInvin + _InvinTime));
+        if (timer > 0)
+        {
+            _isInvincible = false;
+        }
+
+        // Get info from input class
+        float xAxis = Input.GetAxis("Horizontal");
+        float yAxis = Input.GetAxis("Vertical");
+
+        Vector3 pos = transform.position;
+        pos.x += xAxis * speed * Time.deltaTime;
+        pos.y += yAxis * speed * Time.deltaTime;
+        transform.position = pos;
+
+        // Cool fly-in at start
+        if (start)
+>>>>>>> Stashed changes
         {
             // Get info from input class
             float xAxis = Input.GetAxis("Horizontal");
@@ -86,13 +109,50 @@ public class Hero : MonoBehaviour
         //If collide with enemy
         if (go.tag == "Enemy")
         {
-            shieldLevel--;
-            Destroy(go);
+            if (!_isInvincible)
+            {
+                shieldLevel--;
+            }
+                Destroy(go);
+        }
+        else if (go.tag == "PowerUp")
+        {
+            AbsorbPowerUp(go);
+        }
+        else if(go.tag == "ProjectileEnemy")
+        {
+            if (!_isInvincible)
+            {
+                shieldLevel--;
+            }
+                Destroy(go);
         }
         else
         {
             Debug.Log("Triggered by non-Enemy: " + go.name);
         }
+    }
+
+    public void AbsorbPowerUp(GameObject go)
+    {
+        Powerup pu = go.GetComponent<Powerup>();
+        switch (pu.type)
+        {
+            case WeaponType.shield:
+                if (_shieldLvl < 4)
+                {
+                    _shieldLvl += 1;
+                }
+                break;
+            case WeaponType.invincibility:
+                _isInvincible = true;
+                _startInvin = Time.time;
+                break;
+            case WeaponType.nuke:
+                Main.MAIN_SINGLETON.nuke();
+                break;
+        }
+        pu.AbsorbedBy(this.gameObject);
     }
 
     //Get the shield level

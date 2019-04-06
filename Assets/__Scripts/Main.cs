@@ -7,7 +7,10 @@ public enum WeaponType
 {
     none,
     blaster,
-    spread
+    spread,
+    nuke,
+    shield,
+    invincibility
 }
 
 public class Main : MonoBehaviour
@@ -20,6 +23,13 @@ public class Main : MonoBehaviour
     public GameObject[] prefabEnemies;
     public GameObject[] prefabHeroes;
     public WeaponDefinition[] weaponDefinitions;
+    public GameObject prefabPowerUp;
+    public WeaponType[] powerUpFrequency = new WeaponType[]
+    {
+        WeaponType.shield,
+        WeaponType.nuke,
+        WeaponType.invincibility
+    };
 
     void Awake()
     {
@@ -100,5 +110,31 @@ public class Main : MonoBehaviour
         }
 
         return (new WeaponDefinition());
+    }
+
+    public void nuke()
+    {
+        GameObject[] enemyList;
+        enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemyList)
+        {
+            Destroy(enemy);
+        }
+    }
+
+    //attempts to spawn in a powerup when an enemy is destroyed
+    public void ShipDestroyed(Enemy e)
+    {
+        if(Random.value <= e.powerUpDropChance)
+        {
+            int ndx = Random.Range(0, powerUpFrequency.Length);
+            WeaponType puType = powerUpFrequency[ndx];
+
+            GameObject go = Instantiate(prefabPowerUp) as GameObject;
+            Powerup pu = go.GetComponent<Powerup>();
+            pu.SetType(puType);
+
+            pu.transform.position = e.transform.position;
+        }
     }
 }
