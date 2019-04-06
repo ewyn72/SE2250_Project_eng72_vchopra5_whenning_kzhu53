@@ -143,7 +143,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 79220771}
-  m_Father: {fileID: 1196031018}
+  m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -375,7 +375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170076733
 GameObject:
@@ -619,7 +619,7 @@ MonoBehaviour:
   - {fileID: 1298119839673942222, guid: 944de1399fc0b429c853675981f0c43c, type: 3}
   prefabHeroes:
   - {fileID: 8843934151088542983, guid: b98073b3f3c3b406099978c886610252, type: 3}
-  - {fileID: 3858859268294338655, guid: b0db0b39365a84dabbcc6f4b8dbdf90c, type: 3}
+  - {fileID: 8848090421099904338, guid: 27ffe18e4108b4edba62bb4744bd1116, type: 3}
   weaponDefinitions:
   - type: 1
     letter: B
@@ -745,7 +745,7 @@ Transform:
   m_LocalScale: {x: 160, y: 160, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1179135408
 GameObject:
@@ -837,7 +837,7 @@ Transform:
   m_LocalScale: {x: 160, y: 160, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207874634
 GameObject:
@@ -1027,7 +1027,7 @@ Transform:
   m_LocalScale: {x: 80, y: 80, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1512660584
 GameObject:
