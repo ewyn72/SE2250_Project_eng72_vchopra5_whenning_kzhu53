@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 117126501565140705}
   - component: {fileID: 3629460236565135578}
   - component: {fileID: 9156096778722021511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_Tie_Fighter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
