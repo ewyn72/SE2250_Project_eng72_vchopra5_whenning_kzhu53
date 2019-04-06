@@ -31,9 +31,14 @@ public class Main : MonoBehaviour
         {
             print("Main singleton already created.");
         }
-   
+
+        // If you skipped the main menu and started on game scene
+        if (CharacterSelect.CHAR_SINGLETON == null)
+        {
+            Instantiate<GameObject>(prefabHeroes[0]);
+        }
         // otherwise char singleton exists
-        if (CharacterSelect.CHAR_SINGLETON.luke)
+        else if (CharacterSelect.CHAR_SINGLETON.luke)
         {
             Instantiate<GameObject>(prefabHeroes[0]);
         }
