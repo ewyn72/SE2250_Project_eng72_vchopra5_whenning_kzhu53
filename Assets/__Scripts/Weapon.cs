@@ -147,15 +147,18 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl) == true)
+        if (!Pause.gamePaused)
         {
-            if(type == WeaponType.blaster)
+            if (Input.GetKeyDown(KeyCode.LeftControl) == true)
             {
-                type = WeaponType.spread;
-            }
-            else if(type == WeaponType.spread)
-            {
-                type = WeaponType.blaster;
+                if (type == WeaponType.blaster)
+                {
+                    type = WeaponType.spread;
+                }
+                else if (type == WeaponType.spread)
+                {
+                    type = WeaponType.blaster;
+                }
             }
         }
     }
