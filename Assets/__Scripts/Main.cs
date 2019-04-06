@@ -31,7 +31,7 @@ public class Main : MonoBehaviour
             print("Main singleton already created.");
         }
 
-
+        AudioManager.AUDIO_MANAGER.switchScene();
         WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition>();
         foreach (WeaponDefinition def in weaponDefinitions)
         {
