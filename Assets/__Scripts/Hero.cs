@@ -42,28 +42,14 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
         if (!Pause.gamePaused)
-=======
-        float timer = (Time.time - (_startInvin + _InvinTime));
-        if (timer > 0)
         {
-            _isInvincible = false;
-        }
+            float timer = (Time.time - (_startInvin + _InvinTime));
+            if (timer > 0)
+            {
+                _isInvincible = false;
+            }
 
-        // Get info from input class
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
-
-        Vector3 pos = transform.position;
-        pos.x += xAxis * speed * Time.deltaTime;
-        pos.y += yAxis * speed * Time.deltaTime;
-        transform.position = pos;
-
-        // Cool fly-in at start
-        if (start)
->>>>>>> Stashed changes
-        {
             // Get info from input class
             float xAxis = Input.GetAxis("Horizontal");
             float yAxis = Input.GetAxis("Vertical");
@@ -73,24 +59,25 @@ public class Hero : MonoBehaviour
             pos.y += yAxis * speed * Time.deltaTime;
             transform.position = pos;
 
-            // Cool fly-in at start
-            if (start)
-            {
-                pos.y += speed * Time.deltaTime;
-                transform.position = pos;
-            }
-            if (pos.y >= 0)
-            {
-                start = false;
-            }
+                // Cool fly-in at start
+                if (start)
+                {
+                    pos.y += speed * Time.deltaTime;
+                    transform.position = pos;
+                }
+                if (pos.y >= 0)
+                {
+                    start = false;
+                }
 
-            // Ship Rotation
-            transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
+                // Ship Rotation
+                transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
 
-            if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
-            {
-                fireDelegate();
-            }
+                if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+                {
+                    fireDelegate();
+                }
+            
         }
     }
 
