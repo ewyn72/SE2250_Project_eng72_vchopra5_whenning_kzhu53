@@ -105,15 +105,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Mute()
+    public int Mute()
     {
         if(_audioSource.volume == 0.0f)
         {
             _audioSource.volume = 0.7f;
+            return 1;
         }
         else
         {
             _audioSource.volume = 0;
+            return 0;
         }
     }
 

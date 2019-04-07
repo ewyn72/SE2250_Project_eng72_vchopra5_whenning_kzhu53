@@ -22,8 +22,16 @@ public class PauseButtonClicks : MonoBehaviour
 
     void MuteAudio()
     {
-        muteAudioButton.GetComponentInChildren<Text>().text = "Unmute";
-        AudioManager.AUDIO_MANAGER.Mute();
+        int ret = AudioManager.AUDIO_MANAGER.Mute();
+        if (ret == 1)
+        {
+            muteAudioButton.GetComponentInChildren<Text>().text = "Mute Audio";
+        }
+        else {
+            muteAudioButton.GetComponentInChildren<Text>().text = "Unmute Audio";
+        }
+
+
     }
 
     void GoToMainMenu()
