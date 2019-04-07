@@ -37,7 +37,7 @@ public class EnemyBoss : Enemy
         //Assigning new position
         
         //The addition/subtractions account for model size
-        _p1.x = Random.Range(-30, 30); 
+        _p1.x = Random.Range(0, 30); 
         _p1.y = Random.Range(30, 39);
         
         //Resets time
@@ -71,15 +71,15 @@ public class EnemyBoss : Enemy
             GameObject projectile1 = Instantiate<GameObject>(projPrefab);
             GameObject projectile2 = Instantiate<GameObject>(projPrefab);
             GameObject projectile3 = Instantiate<GameObject>(projPrefab);
-            projectile1.transform.position = transform.position + new Vector3(0, -20, 0);
+            projectile1.transform.position = transform.position + new Vector3(-17, -46, -20);
             Rigidbody rigidB1 = projectile1.GetComponent<Rigidbody>();
             rigidB1.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
 
-            projectile2.transform.position = transform.position + new Vector3(5f, -7f, 0);
+            projectile2.transform.position = transform.position + new Vector3(-22f, -28, -20);
             Rigidbody rigidB2 = projectile2.GetComponent<Rigidbody>();
             rigidB2.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
 
-            projectile3.transform.position = transform.position + new Vector3(-5f, -7f, 0);
+            projectile3.transform.position = transform.position + new Vector3(-11f, -28, -20);
             Rigidbody rigidB3 = projectile3.GetComponent<Rigidbody>();    
             rigidB3.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
             

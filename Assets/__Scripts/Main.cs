@@ -166,7 +166,7 @@ public class Main : MonoBehaviour
     public void SpawnBoss()
     {
         GameObject enemy = Instantiate<GameObject>(prefabEnemies[3]);
-        float xPos = Random.Range(-30, 30);
-        enemy.transform.position = new Vector3(xPos, 45f);
+        float xPos = Random.Range(0, 30);
+        enemy.transform.position = new Vector3(xPos, 30f, 20);
     }
 }
