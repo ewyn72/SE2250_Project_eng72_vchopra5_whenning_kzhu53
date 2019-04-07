@@ -8,7 +8,7 @@ public class ProgressBar : MonoBehaviour
     static public ProgressBar PROGRESS;
     public Slider slider;
     public float maxTime; // In Seconds
-    public float currTime = 0;
+    private float _currTime = 0;
     public bool finish = false;
 
     void Awake()
@@ -26,19 +26,19 @@ public class ProgressBar : MonoBehaviour
     private void Update()
     {
         slider.value = CalculateSliderValue();
-        if (currTime < maxTime)
+        if (_currTime < maxTime)
         {
-            currTime += Time.deltaTime;
+            _currTime += Time.deltaTime;
         }
-        else if (currTime >= maxTime)
+        else if (_currTime >= maxTime)
         {
-            currTime = maxTime;
+            _currTime = maxTime;
             finish = true;
         }
     }
 
     float CalculateSliderValue()
     {
-        return (currTime / maxTime);
+        return (_currTime / maxTime);
     }
 }

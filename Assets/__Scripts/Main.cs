@@ -92,7 +92,10 @@ public class Main : MonoBehaviour
         if (ProgressBar.PROGRESS.finish)
         {
             if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
                 Invoke("NextLevel", 2f);
+                Levels.Increment();
+            }
         }
 
     }
