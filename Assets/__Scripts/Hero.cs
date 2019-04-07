@@ -16,6 +16,7 @@ public class Hero : MonoBehaviour
     public float gameRestartDelay = 2f;
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
+    public float showInvinDuration = 5f;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -24,6 +25,12 @@ public class Hero : MonoBehaviour
     private float _InvinTime = 5f;
     private bool _isInvincible = false;
     private bool _startAnimation = true;
+    private bool _animation = true;
+    public Color[] originalColors;
+    public Material[] materials;
+    public bool showingInvin = false;
+    public float invinDoneTime;
+
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
@@ -37,6 +44,13 @@ public class Hero : MonoBehaviour
         else
         {
             Debug.LogError("Hero.Awake() - Attempted to assign second Hero.S");
+        }
+
+        materials = Utils.GetAllMaterials(gameObject);
+        originalColors = new Color[materials.Length];
+        for (int i = 0; i < materials.Length; i++)
+        {
+            originalColors[i] = materials[i].color;
         }
     }
 
@@ -82,6 +96,12 @@ public class Hero : MonoBehaviour
             {
                 fireDelegate();
             }
+
+                if (showingInvin && Time.time > invinDoneTime)
+                {
+                    UnShowInvin();
+                }
+            
             
         }
     }
@@ -148,6 +168,7 @@ public class Hero : MonoBehaviour
             case WeaponType.invincibility:
                 _isInvincible = true;
                 _startInvin = Time.time;
+                ShowInvin();
                 break;
             case WeaponType.nuke:
                 Main.MAIN_SINGLETON.nuke();
@@ -174,5 +195,24 @@ public class Hero : MonoBehaviour
                 Main.MAIN_SINGLETON.DelayedRestart(gameRestartDelay);
             }
         }
+    }
+
+    void ShowInvin()
+    {
+        foreach (Material m in materials)
+        {
+            m.color = Color.yellow;
+        }
+        showingInvin = true;
+        invinDoneTime = Time.time + showInvinDuration;
+    }
+
+    void UnShowInvin()
+    {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].color = originalColors[i];
+        }
+        showingInvin = false;
     }
 }
