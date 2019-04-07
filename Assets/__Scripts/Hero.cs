@@ -22,7 +22,7 @@ public class Hero : MonoBehaviour
     private float _startInvin;
     private float _InvinTime = 5f;
     private bool _isInvincible = false;
-    private bool _animation = true;
+    private bool _startAnimation = true;
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
@@ -56,7 +56,7 @@ public class Hero : MonoBehaviour
 
             Vector3 pos = transform.position;
 
-            if (!_animation) //Prevents user input when script moving hero
+            if (!_startAnimation) //Prevents user input when script moving hero
             {
                 pos.x += xAxis * speed * Time.deltaTime;
                 pos.y += yAxis * speed * Time.deltaTime;
@@ -64,14 +64,14 @@ public class Hero : MonoBehaviour
             }
 
             // Cool fly-in at start
-            if (_animation)
+            if (_startAnimation)
             {
                 pos.y += speed * Time.deltaTime;
                 transform.position = pos;
             }
             if (pos.y >= 0)
             {
-                _animation = false;
+                _startAnimation = false;
             }
 
             // Ship Rotation
