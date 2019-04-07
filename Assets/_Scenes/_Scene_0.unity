@@ -1374,7 +1374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1291188473}
-  maxTime: 120
+  maxTime: 30
+  currTime: 0
+  finish: 0
 --- !u!222 &1291188475
 CanvasRenderer:
   m_ObjectHideFlags: 0

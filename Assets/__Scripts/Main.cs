@@ -88,6 +88,12 @@ public class Main : MonoBehaviour
                 enemy.transform.position = new Vector3(xPos, 45f);
             }
         }
+        /* Work on later
+        if (ProgressBar.PROGRESS.finish)
+        {
+            Invoke("NextLevel", 2f);
+        }
+        */
     }
 
     //Delay the restart of the game
@@ -99,6 +105,11 @@ public class Main : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("_Scene_0");
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     //Get the weapon definition

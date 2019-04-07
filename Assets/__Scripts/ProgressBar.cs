@@ -5,9 +5,23 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
+    static public ProgressBar PROGRESS;
     public Slider slider;
     public float maxTime; // In Seconds
-    private float currTime = 0;
+    public float currTime = 0;
+    public bool finish = false;
+
+    void Awake()
+    {
+        if (PROGRESS == null)
+        {
+            PROGRESS = this;
+        }
+        else
+        {
+            Debug.LogError("ProgressBar.Awake() - Attempted to assign second PROGRESS.S");
+        }
+    }
 
     private void Update()
     {
@@ -15,6 +29,11 @@ public class ProgressBar : MonoBehaviour
         if (currTime < maxTime)
         {
             currTime += Time.deltaTime;
+        }
+        else if (currTime >= maxTime)
+        {
+            currTime = maxTime;
+            finish = true;
         }
     }
 

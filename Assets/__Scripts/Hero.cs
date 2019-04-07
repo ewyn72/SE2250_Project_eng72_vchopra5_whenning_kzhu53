@@ -15,7 +15,6 @@ public class Hero : MonoBehaviour
     public float gameRestartDelay = 2f;
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
-    public bool start = true;
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -23,6 +22,7 @@ public class Hero : MonoBehaviour
     private float _startInvin;
     private float _InvinTime = 5f;
     private bool _isInvincible = false;
+    private bool _animation = true;
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
@@ -55,19 +55,23 @@ public class Hero : MonoBehaviour
             float yAxis = Input.GetAxis("Vertical");
 
             Vector3 pos = transform.position;
-            pos.x += xAxis * speed * Time.deltaTime;
-            pos.y += yAxis * speed * Time.deltaTime;
-            transform.position = pos;
+
+            if (!_animation) //Prevents user input when script moving hero
+            {
+                pos.x += xAxis * speed * Time.deltaTime;
+                pos.y += yAxis * speed * Time.deltaTime;
+                transform.position = pos;
+            }
 
                 // Cool fly-in at start
-                if (start)
+                if (_animation)
                 {
                     pos.y += speed * Time.deltaTime;
                     transform.position = pos;
                 }
                 if (pos.y >= 0)
                 {
-                    start = false;
+                    _animation = false;
                 }
 
                 // Ship Rotation
