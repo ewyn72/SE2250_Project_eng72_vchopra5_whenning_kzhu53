@@ -25,6 +25,7 @@ public class ScoreManager : MonoBehaviour
         {
             print("Score Manager already created.");
         }
+        DontDestroyOnLoad(SCORE_MANAGER);
     }
 
     //update current score
