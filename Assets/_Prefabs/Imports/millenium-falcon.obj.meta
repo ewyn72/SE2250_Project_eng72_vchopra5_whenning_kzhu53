@@ -329,7 +329,22 @@ ModelImporter:
     4300102: T_DISK
     4300104: T_GUNSWIV
     4300106: t_panel
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: B_DISKMat
+    second: {fileID: 2100000, guid: ae03e0ea8115d4ab7b446458a34c0bb5, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: B_GUNMat
+    second: {fileID: 2100002, guid: ae03e0ea8115d4ab7b446458a34c0bb5, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: B_GUNSWIVMat
+    second: {fileID: 2100004, guid: ae03e0ea8115d4ab7b446458a34c0bb5, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

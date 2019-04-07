@@ -98,7 +98,7 @@ public class Hero : MonoBehaviour
         _lastTriggerGo = go;
 
         //If collide with enemy
-        if (go.tag == "Enemy")
+        if (go.tag == "Enemy" || go.tag == "ProjectileEnemy")
         {
             if (!_isInvincible)
             {
@@ -117,6 +117,15 @@ public class Hero : MonoBehaviour
                 shieldLevel--;
             }
                 Destroy(go);
+        }
+        else if (go.tag == "EnemyBoss")
+        {
+            //Kills the hero by lowering to death threshold
+            shieldLevel--;
+            shieldLevel--;
+            shieldLevel--;
+            shieldLevel--;
+            shieldLevel--;
         }
         else
         {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -668,6 +668,7 @@ MonoBehaviour:
   - {fileID: 2516586006188414462, guid: f947f6766ea2540c182d67cfeaf827c5, type: 3}
   - {fileID: 3508336672919086552, guid: cf70f7aa4deca4aa4a326fce5ee68f0d, type: 3}
   - {fileID: 3707159307648709493, guid: 5f19777ec2caa4b1884d3a896ea482f4, type: 3}
+  - {fileID: 2791070223416622389, guid: 88d512c4d481b5842907de5bb5800e78, type: 3}
   prefabHeroes:
   - {fileID: 8843934151088542983, guid: b98073b3f3c3b406099978c886610252, type: 3}
   - {fileID: 8848090421099904338, guid: 27ffe18e4108b4edba62bb4744bd1116, type: 3}
@@ -1201,7 +1202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1291188473}
-  maxTime: 120
+  maxTime: 10
   finish: 0
 --- !u!222 &1291188475
 CanvasRenderer:

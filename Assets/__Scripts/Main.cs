@@ -18,7 +18,8 @@ public class Main : MonoBehaviour
     static public Main MAIN_SINGLETON;
     static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
     private float _time = 0.0f;
-
+    private bool _bossSpawned = false;
+    
     public float spawnEverySecond = 2.0f;
     public GameObject[] prefabEnemies;
     public GameObject[] prefabHeroes;
@@ -96,8 +97,15 @@ public class Main : MonoBehaviour
                 Invoke("NextLevel", 2f);
                 Levels.Increment();
             }
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                if (!_bossSpawned)
+                {
+                    SpawnBoss();
+                    _bossSpawned = true;
+                }
+            }
         }
-
     }
 
     //Delay the restart of the game
@@ -152,5 +160,12 @@ public class Main : MonoBehaviour
 
             pu.transform.position = e.transform.position;
         }
+    }
+
+    public void SpawnBoss()
+    {
+        GameObject enemy = Instantiate<GameObject>(prefabEnemies[3]);
+        float xPos = Random.Range(-30, 30);
+        enemy.transform.position = new Vector3(xPos, 45f);
     }
 }

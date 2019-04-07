@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private BoundsCheck _bndCheck;
+    private BoundsCheck _bndCheck; 
     public float speed = 10f;
     public float score = 100f;
     public float health = 2f;
@@ -56,8 +56,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   
-    void OnCollisionEnter( Collision coll )
+
+    public void OnCollisionEnter( Collision coll )
     {
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)
