@@ -63,24 +63,24 @@ public class Hero : MonoBehaviour
                 transform.position = pos;
             }
 
-                // Cool fly-in at start
-                if (_animation)
-                {
-                    pos.y += speed * Time.deltaTime;
-                    transform.position = pos;
-                }
-                if (pos.y >= 0)
-                {
-                    _animation = false;
-                }
+            // Cool fly-in at start
+            if (_animation)
+            {
+                pos.y += speed * Time.deltaTime;
+                transform.position = pos;
+            }
+            if (pos.y >= 0)
+            {
+                _animation = false;
+            }
 
-                // Ship Rotation
-                transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
+            // Ship Rotation
+            transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
 
-                if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
-                {
-                    fireDelegate();
-                }
+            if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+            {
+                fireDelegate();
+            }
             
         }
     }
