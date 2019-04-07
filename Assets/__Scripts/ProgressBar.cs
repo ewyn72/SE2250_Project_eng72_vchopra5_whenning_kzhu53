@@ -25,15 +25,18 @@ public class ProgressBar : MonoBehaviour
 
     private void Update()
     {
-        slider.value = CalculateSliderValue();
-        if (_currTime < maxTime)
+        if (!Pause.gamePaused)
         {
-            _currTime += Time.deltaTime;
-        }
-        else if (_currTime >= maxTime)
-        {
-            _currTime = maxTime;
-            finish = true;
+            slider.value = CalculateSliderValue();
+            if (_currTime < maxTime)
+            {
+                _currTime += Time.deltaTime;
+            }
+            else if (_currTime >= maxTime)
+            {
+                _currTime = maxTime;
+                finish = true;
+            }
         }
     }
 
