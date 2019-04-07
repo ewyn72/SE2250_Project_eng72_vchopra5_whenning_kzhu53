@@ -96,6 +96,7 @@ public class Main : MonoBehaviour
             {
                 Invoke("NextLevel", 2f);
                 Levels.Increment();
+                Enemy.UpdateEnemy();
             }
             if (SceneManager.GetActiveScene().buildIndex == 3)
             {

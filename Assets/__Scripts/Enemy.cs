@@ -113,4 +113,12 @@ public class Enemy : MonoBehaviour
         }
         showingDamage = false;
     }
+
+    public static void UpdateEnemy()
+    {
+        if (Levels.currentLevel > 1)
+        {
+            Main.MAIN_SINGLETON.spawnEverySecond = 2 + Levels.currentLevel / 2.0f;
+        }
+    }
 }

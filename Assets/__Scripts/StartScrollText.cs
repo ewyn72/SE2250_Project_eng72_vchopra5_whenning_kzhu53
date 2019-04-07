@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class StartScrollText : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Invoke("NextScene", 10);
+        string name = "";
+        if (CharacterSelect.CHAR_SINGLETON.luke)
+        {
+            name = "Luke";
+        }
+        else if (CharacterSelect.CHAR_SINGLETON.solo)
+        {
+            name = "Han";
+        }
+        SceneManager.GetActiveScene().GetRootGameObjects()[2].GetComponent<VideoPlayer>().clip = Resources.Load("Video/" + name) as VideoClip;
+        Invoke("NextScene", 12);
     }
 
     void NextScene()

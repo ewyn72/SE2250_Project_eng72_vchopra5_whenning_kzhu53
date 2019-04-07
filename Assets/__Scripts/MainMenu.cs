@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame ()
     {
-        if (PlayerPrefs.GetInt("ShowedIntro", 2) != 1)
+        if (PlayerPrefs.GetInt("ShowedIntro", 2) != 3)
         {
             PlayerPrefs.SetInt("ShowedIntro", 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
