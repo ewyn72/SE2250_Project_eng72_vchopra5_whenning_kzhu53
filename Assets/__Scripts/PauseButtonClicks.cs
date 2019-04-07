@@ -37,7 +37,8 @@ public class PauseButtonClicks : MonoBehaviour
     void GoToMainMenu()
     {
         ScoreManager.SCORE_MANAGER.updateHighScore();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        Destroy(ScoreManager.SCORE_MANAGER.gameObject); // Destroy current ScoreManager
+        SceneManager.LoadScene("_MainMenu");
     }
 }
 
