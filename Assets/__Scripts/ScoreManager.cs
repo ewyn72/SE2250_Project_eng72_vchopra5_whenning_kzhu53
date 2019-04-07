@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     static public ScoreManager SCORE_MANAGER; //Singleton
     public Text highScore;
     public Text currentScore;
+    public bool isActive = false;
     private float _highS;
     private float _currS;
 
@@ -56,5 +57,10 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("highscore", 0);
         _highS = 0f;
         highScore.text = "HighScore: " + _highS;
+    }
+
+    public void SetActive(bool state)
+    {
+        this.SetActive(state);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject scoreManager;
     public void Start()
     {
         AudioManager.AUDIO_MANAGER.SwitchScene();
@@ -19,6 +20,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            Instantiate<GameObject>(scoreManager);
         }
 
     }
