@@ -118,7 +118,7 @@ public class Main : MonoBehaviour
     public void Restart()
     {
         ScoreManager.SCORE_MANAGER.updateCurrScore(0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("_Scene_0");
     }
 
     public void NextLevel()

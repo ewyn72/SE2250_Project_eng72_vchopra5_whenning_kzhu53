@@ -6,6 +6,7 @@ using UnityEngine.Video;
 
 public class StartScrollText : MonoBehaviour
 {
+    public GameObject scoreManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +25,7 @@ public class StartScrollText : MonoBehaviour
 
     void NextScene()
     {
+        Instantiate<GameObject>(scoreManager);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -20,7 +20,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-            Instantiate<GameObject>(scoreManager);
         }
 
     }
