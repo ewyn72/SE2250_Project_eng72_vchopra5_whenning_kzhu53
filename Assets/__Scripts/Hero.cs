@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hero : MonoBehaviour
 {
@@ -64,12 +65,12 @@ public class Hero : MonoBehaviour
             }
 
             // Cool fly-in at start
-            if (_startAnimation)
+            if (_startAnimation && SceneManager.GetActiveScene().buildIndex == 2)
             {
                 pos.y += speed * Time.deltaTime;
                 transform.position = pos;
             }
-            if (pos.y >= 0)
+            if (pos.y >= 0 || SceneManager.GetActiveScene().buildIndex == 3)
             {
                 _startAnimation = false;
             }
