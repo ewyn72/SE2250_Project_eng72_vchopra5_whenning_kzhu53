@@ -79,14 +79,14 @@ public class Hero : MonoBehaviour
             }
 
             // Cool fly-in at start
+            if (pos.y >= 0 || SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                _startAnimation = false;
+            }
             if (_startAnimation && SceneManager.GetActiveScene().buildIndex == 2)
             {
                 pos.y += speed * Time.deltaTime;
                 transform.position = pos;
-            }
-            if (pos.y >= 0 || SceneManager.GetActiveScene().buildIndex == 3)
-            {
-                _startAnimation = false;
             }
 
             // Ship Rotation
