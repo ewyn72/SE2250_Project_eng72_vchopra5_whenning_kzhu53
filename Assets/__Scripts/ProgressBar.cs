@@ -23,6 +23,20 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    public float CurrentTime {
+        get{
+            return _currTime;
+        }
+        set
+        {
+            _currTime = value;
+            if(value == 0)
+            {
+                finish = false;
+            }
+        }
+    }
+
     private void Update()
     {
         if (!Pause.gamePaused)

@@ -19,6 +19,8 @@ public class Main : MonoBehaviour
     static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
     private float _time = 0.0f;
     private bool _bossSpawned = false;
+    private float _delayEnemySpawn = 3f;
+    private bool _levelAlreadyShown = false;
     
     public float spawnEverySecond = 2.0f;
     public GameObject[] prefabEnemies;
@@ -68,8 +70,9 @@ public class Main : MonoBehaviour
         if (!Pause.gamePaused)
         {
             _time += Time.deltaTime;
-            if (_time >= spawnEverySecond)
+            if (_time >= spawnEverySecond && _time > _delayEnemySpawn)
             {
+                _delayEnemySpawn = 0;
                 _time = _time - spawnEverySecond;
                 GameObject enemy;
                 int enemyChoice = (int)Random.Range(1, 4);
@@ -88,15 +91,25 @@ public class Main : MonoBehaviour
                 float xPos = Random.Range(-30, 30);
                 enemy.transform.position = new Vector3(xPos, 45f);
             }
+            if(_delayEnemySpawn.Equals(0f) && !_levelAlreadyShown)
+            {
+                Levels.ShowLevel();
+                _levelAlreadyShown = true;
+            }
+            else if (!_delayEnemySpawn.Equals(0f))
+            {
+                _levelAlreadyShown = false;
+            }
         }
 
-        if (ProgressBar.PROGRESS.finish)
+        if (ProgressBar.PROGRESS.finish && _time > _delayEnemySpawn)
         {
             if (SceneManager.GetActiveScene().buildIndex == 2)
-            { 
-                Invoke("NextLevel", 2f);
+            {
+                _delayEnemySpawn = 3f;
                 Levels.Increment();
                 Enemy.UpdateEnemy();
+                Invoke("NextLevel", 2f);
             }
             if (SceneManager.GetActiveScene().buildIndex == 3)
             {
@@ -161,6 +174,15 @@ public class Main : MonoBehaviour
 
             pu.transform.position = e.transform.position;
         }
+        if (e.eName.Equals("boss")){
+            print("Boss destroyed");
+            _delayEnemySpawn = 3f;
+            Levels.Increment();
+            ProgressBar.PROGRESS.CurrentTime = 0;
+            ProgressBar.PROGRESS.maxTime += 10;
+            Enemy.UpdateEnemy();
+            _bossSpawned = false;
+        }
     }
 
     public void SpawnBoss()
@@ -168,5 +190,10 @@ public class Main : MonoBehaviour
         GameObject enemy = Instantiate<GameObject>(prefabEnemies[3]);
         float xPos = Random.Range(0, 30);
         enemy.transform.position = new Vector3(xPos, 30f, 20);
+        if (Levels.currentLevel > 2)
+        {
+            var enemyBossScript = enemy.GetComponent<EnemyBoss>();
+            enemyBossScript.UpdateVarsForLevel(Levels.currentLevel);
+        }
     }
 }

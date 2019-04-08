@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float health = 2f;
     public float showDamageDuration = 0.1f;
     public float powerUpDropChance = 0.3f;
+    public string eName = "enemy";
 
     public float radius = 1f;
 
@@ -116,9 +117,9 @@ public class Enemy : MonoBehaviour
 
     public static void UpdateEnemy()
     {
-        if (Levels.currentLevel > 1)
+        if (Levels.currentLevel > 0)
         {
-            Main.MAIN_SINGLETON.spawnEverySecond = 2 + Levels.currentLevel / 2.0f;
+            Main.MAIN_SINGLETON.spawnEverySecond = 2.0f / Levels.currentLevel;
         }
     }
 }

@@ -18,6 +18,8 @@ public class EnemyBoss : Enemy
     private float _duration = 5;        //How long the boss stays there
     float projectileSpeedScaler = 1;    //A scaling used to increase the speed of the boss projectile
 
+    private float _fireRate = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class EnemyBoss : Enemy
         //Sets the initial positions
         _p0 = _p1 = transform.position;
 
+        eName = "boss";
         InitMovement();
     }
 
@@ -65,7 +68,7 @@ public class EnemyBoss : Enemy
     public void Fire()
     {
         //The boss fires every 2seconds
-        if (Time.time >= _time + 2f)
+        if (Time.time >= _time + _fireRate)
         {
             //Creates 3 projectiles and sets there location relative to the boss's location so they come from different points
             GameObject projectile1 = Instantiate<GameObject>(projPrefab);
@@ -89,5 +92,11 @@ public class EnemyBoss : Enemy
         }
     }
 
-    
+    public void UpdateVarsForLevel(int level)
+    {
+        _fireRate = level;
+        projSpeed += 1;
+    }
+
+
 }
