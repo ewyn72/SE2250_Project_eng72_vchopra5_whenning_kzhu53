@@ -39,7 +39,7 @@ public class Levels : MonoBehaviour
 
     public static void resetLevel()
     {
-        _level = 0;
+        _level = 1;
     }
 
     public static void ShowLevel()

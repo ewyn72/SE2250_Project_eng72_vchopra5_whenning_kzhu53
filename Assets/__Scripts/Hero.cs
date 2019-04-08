@@ -192,6 +192,7 @@ public class Hero : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 ScoreManager.SCORE_MANAGER.updateHighScore();
+                Levels.resetLevel();
                 Main.MAIN_SINGLETON.DelayedRestart(gameRestartDelay);
             }
         }
