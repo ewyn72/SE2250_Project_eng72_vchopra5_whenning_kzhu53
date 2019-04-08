@@ -40,6 +40,7 @@ public class Levels : MonoBehaviour
     public static void resetLevel()
     {
         _level = 1;
+        ProgressBar.PROGRESS.maxTime = 10;
     }
 
     public static void ShowLevel()
