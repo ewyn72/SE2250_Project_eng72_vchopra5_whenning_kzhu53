@@ -74,6 +74,10 @@ public class Main : MonoBehaviour
             _time += Time.deltaTime;
             if (_time >= spawnEverySecond && _time > _delayEnemySpawn)
             {
+                if (SceneManager.GetActiveScene().buildIndex == 2)
+                {
+                    Destroy(GameObject.Find("Instructions"));
+                }
                 _delayEnemySpawn = 0;
                 _time = _time - spawnEverySecond;
                 GameObject enemy;
