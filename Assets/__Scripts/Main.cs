@@ -75,11 +75,6 @@ public class Main : MonoBehaviour
             //If enough time has passed so that enemies can spawn + enough time has passed to the last enemy spawn
             if (_time >= spawnEverySecond && _time > _delayEnemySpawn)
             {
-                //Destroy the Instructions Game object if it exist
-                if (SceneManager.GetActiveScene().buildIndex == 2)
-                {
-                    Destroy(GameObject.Find("Instructions"));
-                }
                 _delayEnemySpawn = 0;
                 _time = _time - spawnEverySecond;
 

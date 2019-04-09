@@ -19,6 +19,7 @@ public class EnemyBoss : Enemy
     float projectileSpeedScaler = 1;    //A scaling used to increase the speed of the boss projectile
 
     private float _fireRate = 2f;
+    private bool _prevPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,22 +42,20 @@ public class EnemyBoss : Enemy
 
     void InitMovement()
     {
-        if (!Pause.IS_PAUSED)
-        {
-            _p0 = _p1;  //Sets p0 to old p1
-                        //Assigning new position
+        _p0 = _p1;  //Sets p0 to old p1
+                    //Assigning new position
 
-            //The addition/subtractions account for model size
-            _p1.x = Random.Range(0, 30);
-            _p1.y = Random.Range(30, 39);
+        //The addition/subtractions account for model size
+        _p1.x = Random.Range(0, 30);
+        _p1.y = Random.Range(30, 39);
 
-            //Resets time
-            _timeStart = Time.time;
-        }
+        //Resets time
+        _timeStart = Time.time;
     }
 
     public override void Move()
     {
+
         //Only fire if it is not paused and only move if it is not paused
         if (!Pause.IS_PAUSED)
         {
@@ -65,10 +64,15 @@ public class EnemyBoss : Enemy
             //This overrides the Enemy.Move() with a linear interpolation
             float u = (Time.time - _timeStart) / _duration;
 
-            if (u >= 1)
+            if (u >= 1 || _prevPaused)
             {
+                if (_prevPaused)
+                {
+                    _p1 = transform.position;
+                }
                 InitMovement();
                 u = 0;
+                _prevPaused = false;
             }
 
             u = 1 - Mathf.Pow(1 - u, 2);                    //Apply Ease Out easing to u (Moves fast at beginning and slows as it approaches _p1)
@@ -77,7 +81,9 @@ public class EnemyBoss : Enemy
         //Set the time to be the current time if it is paused to ensure that the boss doesn't immediately fire after unpausing
         else
         {
+
             _time = Time.time;
+            _prevPaused = true;
         }
 
     }
