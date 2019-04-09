@@ -11,7 +11,10 @@ public class LoadAudioManager : MonoBehaviour
     //Instantiate the audio manager
     void Awake()
     {
-        Instantiate(AudioManagerCreate);
+        //Only create if one doesn't exist
+        if(AudioManager.AUDIO_MANAGER == null){
+            Instantiate(AudioManagerCreate);
+        }
     }
 
 }

@@ -200,7 +200,7 @@ public class AudioManager : MonoBehaviour
     //If the boss is going to appear, then play a quote from Darth Vader
     public void PlayDarthVaderQuote()
     {
-        if(Random.Range(0, 100) < 101 && lukeChosen)
+        if(Random.Range(0, 100) < 20 && lukeChosen)
         {
             _audioSource.PlayOneShot(_darthVaderLuke[0]);
         }
@@ -213,7 +213,7 @@ public class AudioManager : MonoBehaviour
     //If the boss is defeated, then play a defeat quote
     public void PlayDarthVaderDefeatQuote()
     {
-        if (Random.Range(0, 100) < 101 && lukeChosen)
+        if (Random.Range(0, 100) < 20 && lukeChosen)
         {
             _audioSource.PlayOneShot(_darthVaderLuke[1]);
         }     
@@ -221,5 +221,10 @@ public class AudioManager : MonoBehaviour
         {
             _audioSource.PlayOneShot(_darthVaderDefeatCommon[((int)Random.Range(0, 100)) % _darthVaderDefeatCommon.Length]);
         }
+    }
+
+    public float Volume()
+    {
+        return _audioSource.volume;
     }
 }

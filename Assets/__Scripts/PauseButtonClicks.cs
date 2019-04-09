@@ -15,6 +15,12 @@ public class PauseButtonClicks : MonoBehaviour
         resumeButton.onClick.AddListener(ResumeGame);
         muteAudioButton.onClick.AddListener(MuteAudio);
         mainMenuButton.onClick.AddListener(GoToMainMenu);
+
+        //Depending on current state, set the mute audio button text to mute or unmute
+        if(AudioManager.AUDIO_MANAGER.Volume().Equals(0f))
+        {
+            muteAudioButton.GetComponentInChildren<Text>().text = "Unmute Audio";
+        }
     }
 
 

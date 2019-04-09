@@ -8,6 +8,7 @@ public class LoadLevels : MonoBehaviour
     public GameObject levelCanvas;
     void Awake()
     {
+        //Check if level text exists, if it doesn't then create it
         if (Levels.LEVEL_SINGLETON == null)
         {
             Instantiate(levelCanvas);
