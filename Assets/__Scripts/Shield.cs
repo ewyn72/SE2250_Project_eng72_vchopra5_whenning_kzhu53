@@ -23,7 +23,8 @@ public class Shield : MonoBehaviour
     //Update the shield level
     void Update()
     {
-        if (!Pause.gamePaused)
+        //Only update if it is not paused
+        if (!Pause.IS_PAUSED)
         {
             int currLevel = Mathf.FloorToInt(Hero.PLAYER_HERO.shieldLevel);
             if (levelShown != currLevel)

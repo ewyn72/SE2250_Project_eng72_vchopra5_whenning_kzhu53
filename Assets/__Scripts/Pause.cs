@@ -5,35 +5,31 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    private static bool _isPaused = false;
+    public static bool IS_PAUSED = false;
     public GameObject pauseMenu;
     public Button setPauseButton;
 
+    //Set the pause button as active
     public void Start()
     {
-        pauseMenu.SetActive(_isPaused);
+        pauseMenu.SetActive(IS_PAUSED);
         setPauseButton.onClick.AddListener(SetPause);
     }
 
+    //Check if "p" was pressed to pause the game
     public void Update()
     {
-        pauseMenu.SetActive(_isPaused);
+        pauseMenu.SetActive(IS_PAUSED);
         if (Input.GetKeyUp("p"))
         {
-            _isPaused = !_isPaused;
+            IS_PAUSED = !IS_PAUSED;
         }
     }
 
+    //Reverse the state of the pause
     public static void SetPause()
     {
-        _isPaused = !_isPaused;
+        IS_PAUSED = !IS_PAUSED;
     }
 
-    public static bool gamePaused
-    {
-        get
-        {
-            return _isPaused;
-        }
-    }
 }

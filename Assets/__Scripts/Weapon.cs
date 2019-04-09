@@ -101,12 +101,14 @@ public class Weapon : MonoBehaviour
 
         switch (type)
         {
+            //The blaster (normal) type of weapon
             case WeaponType.blaster:
                 projectile = MakeProjectile();
                 projectile.rigid.velocity = vel;
                 AudioManager.AUDIO_MANAGER.Shoot("normal");
                 break;
 
+            //The spread weapon, you need to make three for this to work
             case WeaponType.spread:
                 projectile = MakeProjectile();
                 projectile.rigid.velocity = vel;
@@ -136,6 +138,7 @@ public class Weapon : MonoBehaviour
             go.layer = LayerMask.NameToLayer("ProjectileEnemy");
         }
 
+        //Gets the transform of the position
         go.transform.position = collar.transform.position;
         go.transform.SetParent(PROJECTILE_ANCHOR, true);
         Projectile projectile = go.GetComponent<Projectile>();
@@ -148,7 +151,8 @@ public class Weapon : MonoBehaviour
     //handles the switching of weapons
     void Update()
     {
-        if (!Pause.gamePaused)
+        //You can only switch if the game is not paused
+        if (!Pause.IS_PAUSED)
         {
             if (Input.GetKeyDown(KeyCode.LeftControl) == true)
             {

@@ -69,17 +69,21 @@ public class Main : MonoBehaviour
     //Main logic for the game
     void Update()
     {
-        if (!Pause.gamePaused)
+        if (!Pause.IS_PAUSED)
         {
             _time += Time.deltaTime;
+            //If enough time has passed so that enemies can spawn + enough time has passed to the last enemy spawn
             if (_time >= spawnEverySecond && _time > _delayEnemySpawn)
             {
+                //Destroy the Instructions Game object if it exist
                 if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
                     Destroy(GameObject.Find("Instructions"));
                 }
                 _delayEnemySpawn = 0;
                 _time = _time - spawnEverySecond;
+
+                //Initialize an enemy
                 GameObject enemy;
                 int enemyChoice = (int)Random.Range(1, 4);
                 if (enemyChoice == 1)
@@ -97,11 +101,13 @@ public class Main : MonoBehaviour
                 float xPos = Random.Range(-30, 30);
                 enemy.transform.position = new Vector3(xPos, 45f);
             }
+            //If a level has not been shown, then show
             if(_delayEnemySpawn.Equals(0f) && !_levelAlreadyShown)
             {
-                Levels.ShowLevel();
+                Levels.LEVEL_SINGLETON.ShowLevel();
                 _levelAlreadyShown = true;
             }
+            //Otherwise set the variable to false, to show that the level has already been shown, but hasn't for the next level
             else if (!_delayEnemySpawn.Equals(0f))
             {
                 _levelAlreadyShown = false;
@@ -115,7 +121,7 @@ public class Main : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 _delayEnemySpawn = 3f;
-                Levels.Increment();
+                Levels.LEVEL_SINGLETON.Increment();
                 Enemy.UpdateEnemy();
                 Invoke("NextLevel", 2f);
             }
@@ -142,7 +148,7 @@ public class Main : MonoBehaviour
     public void Restart()
     {
         ScoreManager.SCORE_MANAGER.updateCurrScore(0);
-        SceneManager.LoadScene("_Scene_0");
+        SceneManager.LoadScene("_Level_1");
     }
 
     // Moves game to next scene
@@ -188,13 +194,22 @@ public class Main : MonoBehaviour
             pu.transform.position = e.transform.position;
         }
         if (e.eName.Equals("boss")){
-            print("Boss destroyed");
+            //Delay the enemy spawn
             _delayEnemySpawn = 3f;
-            Levels.Increment();
+
+            //Increment the levels
+            Levels.LEVEL_SINGLETON.Increment();
+
+            //Change the time that it takes to complete a level
             ProgressBar.PROGRESS.CurrentTime = 0;
             ProgressBar.PROGRESS.maxTime += 10;
+
+            //Update the enemies
             Enemy.UpdateEnemy();
+
+            //Play a defeat quote
             AudioManager.AUDIO_MANAGER.PlayDarthVaderDefeatQuote();
+
             _bossSpawned = false;
         }
     }
@@ -205,10 +220,5 @@ public class Main : MonoBehaviour
         GameObject enemy = Instantiate<GameObject>(prefabEnemies[3]);
         float xPos = Random.Range(0, 30);
         enemy.transform.position = new Vector3(xPos, 30f, 20);
-        if (Levels.currentLevel > 2)
-        {
-            var enemyBossScript = enemy.GetComponent<EnemyBoss>();
-            enemyBossScript.UpdateVarsForLevel(Levels.currentLevel);
-        }
     }
 }

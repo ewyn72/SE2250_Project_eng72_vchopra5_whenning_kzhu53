@@ -8,8 +8,9 @@ public class Enemy1 : Enemy
     //Set health and score, and whether it moves left or right
     public void Start()
     {
-        health = 2f;
-        score = 50f;
+        //Health and score dependent on level
+        health = 2f + Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel-2, 0);
+        score = 50f + 30*Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, 0); 
         powerUpDropChance = 0.5f;
         _leftOrRight = (int)Random.Range(0, 2);
     }

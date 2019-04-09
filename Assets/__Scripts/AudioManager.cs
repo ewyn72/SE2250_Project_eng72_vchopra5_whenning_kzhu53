@@ -7,30 +7,46 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    //Private variables
+
+    //Singleton instance
     private static AudioManager _MANAGE_AUDIO;
+
+    //General audio clips for the main menu + a couple of sound effects
     private AudioClip[] _audioClips;
+
+    //Darth Vader sound effects that are common to both characters
     private AudioClip[] _darthVaderCommon;
+
+    //Darth Vader defeat sound effects that are common to both characters
     private AudioClip[] _darthVaderDefeatCommon;
-    private static AudioSource _audioSource;
+
+    //Audio source that will play the music
+    private AudioSource _audioSource;
+
+    //Clips that are unique to Luke facing the boss
     private AudioClip _darthVaderLuke;
     private AudioClip _darthVaderLukeDefeat;
 
+    //Default variable which means that Luke is the default variable
     private bool lukeChosen = true;
 
+    //When created, initialize the variables
     public void Awake()
     {
-        InitializeVars();
-    }
-    public AudioManager()
-    {
+        //Singleton structure
         if (_MANAGE_AUDIO == null)
         {
             _MANAGE_AUDIO = this;
+            InitializeVars();
         }
     }
 
+
+    //Initialize all the Audio Clips
     public void InitializeVars()
     {
+        //General sound effects
         _audioClips = new AudioClip[] {(AudioClip)Resources.Load("Audio/menu_selection_click"),
             (AudioClip)Resources.Load("Audio/menu_selection_hover"),
             (AudioClip) Resources.Load("Audio/StarWarsMainTheme"),
@@ -40,20 +56,26 @@ public class AudioManager : MonoBehaviour
             (AudioClip)Resources.Load("Audio/luke_greetings"),
             (AudioClip)Resources.Load("Audio/blaster_multiple")};
 
+
+        //Boss sound effects
         _darthVaderCommon = new AudioClip[] { (AudioClip)Resources.Load("Audio/darthvader_dontmakeme"),
         (AudioClip)Resources.Load("Audio/darthvader_expectingyou"),
         (AudioClip)Resources.Load("Audio/darthvader_giveyourself"),
         (AudioClip)Resources.Load("Audio/darthvader_lackoffaith") };
 
+        //Boss defeat sound effects
         _darthVaderDefeatCommon = new AudioClip[] { (AudioClip)Resources.Load("Audio/darthvader_technological"),
         (AudioClip)Resources.Load("Audio/darthvader_honored") };
 
+
+        //Sound effects unique to Luke
         _darthVaderLuke = Resources.Load("darthvader_pointless") as AudioClip;
         _darthVaderLukeDefeat = Resources.Load("darthvader_taughtyouwell") as AudioClip;
 
+        //If an AudioSource has not been created, create a New One
         if (_audioSource == null)
         {
-            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource = gameObject.GetComponent<AudioSource>();
             _audioSource.loop = true;
             DontDestroyOnLoad(gameObject);
             gameObject.AddComponent<AudioListener>();
@@ -61,11 +83,16 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    //When the scene is switched change the music
     public void SwitchScene()
     {
+        //Get the name of the current scene
         string scene_name = SceneManager.GetActiveScene().name;
+
+
         switch (scene_name)
         {
+            //If its the main menu, play the Star Wars theme song if already not playing
             case "_MainMenu":
                 if (_audioSource.clip == null || !_audioSource.clip.name.Equals(_audioClips[2].name)){
                     FadeOutAudio(1);
@@ -73,7 +100,8 @@ public class AudioManager : MonoBehaviour
                     _audioSource.PlayDelayed(1);
                 }
                 break;
-            case "_Scene_0":
+            //If its the first level, play the Darth Vader theme song if already not playing
+            case "_Level_1":
                 if(_audioSource.clip == null || !_audioSource.clip.name.Equals(_audioClips[3].name))
                 {
                     FadeOutAudio(3);
@@ -84,16 +112,19 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Play the hover sound effect
     public void PlayHover()
     {
         _audioSource.PlayOneShot(_audioClips[1]);
     }
 
+    //Play the click sound effect
     public void PlayClick()
     {
         _audioSource.PlayOneShot(_audioClips[0]);
     }
 
+    //Fade out the audio that is currently playing
     public void FadeOutAudio(int fadeTime)
     {
         float startVolume = _audioSource.volume;
@@ -106,14 +137,17 @@ public class AudioManager : MonoBehaviour
         _audioSource.volume = startVolume;
     }
 
+    //Play the character sound bites
     public void CharacterSelect(string name)
     {
         switch (name)
         {
+            //If han is chosen, then play his sound bit
             case "han":
                 _audioSource.PlayOneShot(_audioClips[5]);
                 lukeChosen = false;
                 break;
+            //If luke is chosen then play his sound bite
             case "luke":
                 _audioSource.PlayOneShot(_audioClips[6]);
                 lukeChosen = true;
@@ -121,20 +155,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Mute or Unmute the audio
     public int Mute()
     {
+        //If the volume is 0 (it is muted)
         if(_audioSource.volume == 0.0f)
         {
+            //Unmute
             _audioSource.volume = 0.7f;
             return 1;
         }
         else
         {
+            //If it is not muted, then mute
             _audioSource.volume = 0;
             return 0;
         }
     }
 
+    //Get the private singleton
     public static AudioManager AUDIO_MANAGER
     {
         get
@@ -143,19 +182,24 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Play the shooting sound
     public void Shoot(string type)
     {
         switch (type)
         {
+            //If its the normal gun, play its sound
             case "normal":
                 _audioSource.PlayOneShot(_audioClips[4]);
                 break;
+
+            //Play the spread gun sound if its that gun
             case "spread":
                 _audioSource.PlayOneShot(_audioClips[7]);
                 break;
         }
     }
 
+    //If the boss is going to appear, then play a quote from Darth Vader
     public void PlayDarthVaderQuote()
     {
         if(Random.Range(0, 100) < 20 && lukeChosen)
@@ -168,6 +212,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //If the boss is defeated, then play a defeat quote
     public void PlayDarthVaderDefeatQuote()
     {
         if (Random.Range(0, 100) < 20 && lukeChosen)

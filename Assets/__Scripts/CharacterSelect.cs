@@ -10,6 +10,7 @@ public class CharacterSelect : MonoBehaviour
     public bool solo = false;
     public bool luke = true;
 
+    //Singleton structure
     void Awake()
     {
         if (CHAR_SINGLETON == null)

@@ -58,7 +58,7 @@ public class Hero : MonoBehaviour
     //main logic and movement for the hero
     void Update()
     {
-        if (!Pause.gamePaused)
+        if (!Pause.IS_PAUSED)
         {
             float timer = (Time.time - (_startInvin + _InvinTime));
             if (timer > 0)
@@ -196,7 +196,7 @@ public class Hero : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 ScoreManager.SCORE_MANAGER.updateHighScore();
-                Levels.resetLevel();
+                Levels.LEVEL_SINGLETON.resetLevel();
                 Main.MAIN_SINGLETON.DelayedRestart(gameRestartDelay);
             }
         }

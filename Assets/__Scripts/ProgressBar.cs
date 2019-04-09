@@ -11,6 +11,7 @@ public class ProgressBar : MonoBehaviour
     private float _currTime = 0;
     public bool finish = false;
 
+    //Singleton structure
     void Awake()
     {
         if (PROGRESS == null)
@@ -41,7 +42,7 @@ public class ProgressBar : MonoBehaviour
     // Updates slider position according to current time relative to max time
     private void Update()
     {
-        if (!Pause.gamePaused)
+        if (!Pause.IS_PAUSED)
         {
             slider.value = CalculateSliderValue();
             if (_currTime < maxTime)

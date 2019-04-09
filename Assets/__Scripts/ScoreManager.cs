@@ -59,6 +59,7 @@ public class ScoreManager : MonoBehaviour
         highScore.text = "HighScore: " + _highS;
     }
 
+    //Set the score manager as active or not
     public void SetActive(bool state)
     {
         this.SetActive(state);

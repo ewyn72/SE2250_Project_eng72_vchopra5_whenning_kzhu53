@@ -23,6 +23,7 @@ public class StartScrollText : MonoBehaviour
         Invoke("NextScene", 12);
     }
 
+    //Instantiate the next scene, and load a new score manager
     void NextScene()
     {
         Instantiate<GameObject>(scoreManager);

@@ -13,8 +13,9 @@ public class Enemy2 : Enemy
     //Set health, score and how long it has been alive for
     public void Start()
     {
-        health = 3f;
-        score = 150f;
+        //Health and score dependent on level
+        health = 3f + Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, 0);
+        score = 150f + 30 * Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, 0);
         speed = 20;
         powerUpDropChance = 0.8f;
         _x0 = transform.position.x;

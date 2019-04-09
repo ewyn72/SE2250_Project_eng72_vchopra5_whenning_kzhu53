@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
     //Every frame, move the enemy and remove the red colour if needed
     public void Update()
     {
-        if (!Pause.gamePaused)
+        if (!Pause.IS_PAUSED)
         {
             Move();
 
@@ -115,11 +115,12 @@ public class Enemy : MonoBehaviour
         showingDamage = false;
     }
 
+    //Set the spawn timer to decrease every level
     public static void UpdateEnemy()
     {
-        if (Levels.currentLevel > 0)
+        if (Levels.LEVEL_SINGLETON.currentLevel > 0)
         {
-            Main.MAIN_SINGLETON.spawnEverySecond = 2.0f / Levels.currentLevel;
+            Main.MAIN_SINGLETON.spawnEverySecond = 2.0f - (Levels.LEVEL_SINGLETON.currentLevel/10.0f);
         }
     }
 }

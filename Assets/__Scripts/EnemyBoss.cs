@@ -23,7 +23,12 @@ public class EnemyBoss : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        //Health, score, projectile spee and fire rate dependent on level
+        health = health + 20*Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, 0);
+        score = score + 500 * Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, 0);
 
+        _fireRate = Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, _fireRate);
+        projSpeed = Mathf.Max(Levels.LEVEL_SINGLETON.currentLevel - 2, projSpeed);
         //Sets the initial time
         _time = Time.time;
 
@@ -90,12 +95,6 @@ public class EnemyBoss : Enemy
             _time = Time.time;
             projectileSpeedScaler = projectileSpeedScaler + 0.05f;
         }
-    }
-
-    public void UpdateVarsForLevel(int level)
-    {
-        _fireRate = level;
-        projSpeed += 1;
     }
 
 

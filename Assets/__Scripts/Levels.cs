@@ -5,31 +5,37 @@ using UnityEngine.UI;
 
 public class Levels : MonoBehaviour
 {
-    private static int _level = 1;
-    private static string[] _listOfPlanets = { "Abafar", "Alderaan", "Batuu", "Coruscant", "D'Qar", "Eadu", "Hoth", "Iego"};
+    //Private variables to set the text
+    private int _level = 1;
+    private string[] _listOfPlanets = { "Abafar", "Alderaan", "Batuu", "Coruscant", "D'Qar", "Eadu", "Hoth", "Iego"};
     public Text firstLevelField;
-    public static Text levelField;
-    private static float _currTime = 0f;
-    private static bool _showedLevel = false;
+    public Text levelField;
+    private float _currTime= 0f;
+    private bool _showedLevel = false;
 
+    public static Levels LEVEL_SINGLETON;
+
+    //Create the Levels class
     private void Awake()
     {
-        firstLevelField.enabled = false;
-        SetStaticVars();
+        if(LEVEL_SINGLETON == null)
+        {
+            LEVEL_SINGLETON = this;
+            firstLevelField.enabled = false;
+            levelField = firstLevelField;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    private void SetStaticVars()
-    {
-        levelField = firstLevelField;
-        DontDestroyOnLoad(gameObject);
-    }
 
-    public static void Increment()
+    //Increment the level by one
+    public void Increment()
     {
         _level++;
     }
 
-    public static int currentLevel
+    //This is so that other classes can access the level number
+    public int currentLevel
     {
         get
         {
@@ -37,37 +43,46 @@ public class Levels : MonoBehaviour
         }
     }
 
-    public static void resetLevel()
+    //Reset the level and the max time per level
+    public void resetLevel()
     {
-        _level = 1;
+       _level = 1;
         ProgressBar.PROGRESS.maxTime = 10;
     }
 
-    public static void ShowLevel()
+
+    public void ShowLevel()
     {
+        //Show the level and set the text to white
         _showedLevel = true;
-        print("Showing level");
         levelField.color = Color.white;
+
+        //Level 1 has a custom level
         if (_level == 1)
         {
             levelField.text = "Level 1: Training";
         }
+        //Otherwise use a planet name that's coming up with the current level
         else
         {
             levelField.text = "Level " + currentLevel + ": " + _listOfPlanets[(currentLevel - 2) % _listOfPlanets.Length];
         }
 
+        //Enabled the text field
         levelField.enabled = true;
-        _currTime = 0;
 
+        //Set the current time to 0
+        _currTime = 0;
 
     }
 
     public void Update()
     {
         _currTime += Time.deltaTime;
-        if(_showedLevel && _currTime > 3.0f)
+        //If the current time is greater than 2 seconds
+        if(_showedLevel && _currTime > 2.0f)
         {
+            //Set the current time to 0, and set _showedLevel = false, as the level is no longer showed
             _currTime = 0f;
             _showedLevel = false;
             levelField.enabled = false;
