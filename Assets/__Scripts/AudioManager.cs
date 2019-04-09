@@ -9,7 +9,13 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager _MANAGE_AUDIO;
     private AudioClip[] _audioClips;
+    private AudioClip[] _darthVaderCommon;
+    private AudioClip[] _darthVaderDefeatCommon;
     private static AudioSource _audioSource;
+    private AudioClip _darthVaderLuke;
+    private AudioClip _darthVaderLukeDefeat;
+
+    private bool lukeChosen = true;
 
     public void Awake()
     {
@@ -20,10 +26,6 @@ public class AudioManager : MonoBehaviour
         if (_MANAGE_AUDIO == null)
         {
             _MANAGE_AUDIO = this;
-        }
-        else
-        {
-            print("Audio Manager already instantiated");
         }
     }
 
@@ -37,6 +39,18 @@ public class AudioManager : MonoBehaviour
             (AudioClip)Resources.Load("Audio/hansolo_gorgeousguy"),
             (AudioClip)Resources.Load("Audio/luke_greetings"),
             (AudioClip)Resources.Load("Audio/blaster_multiple")};
+
+        _darthVaderCommon = new AudioClip[] { (AudioClip)Resources.Load("Audio/darthvader_dontmakeme"),
+        (AudioClip)Resources.Load("Audio/darthvader_expectingyou"),
+        (AudioClip)Resources.Load("Audio/darthvader_giveyourself"),
+        (AudioClip)Resources.Load("Audio/darthvader_lackoffaith") };
+
+        _darthVaderDefeatCommon = new AudioClip[] { (AudioClip)Resources.Load("Audio/darthvader_technological"),
+        (AudioClip)Resources.Load("Audio/darthvader_honored") };
+
+        _darthVaderLuke = Resources.Load("darthvader_pointless") as AudioClip;
+        _darthVaderLukeDefeat = Resources.Load("darthvader_taughtyouwell") as AudioClip;
+
         if (_audioSource == null)
         {
             _audioSource = gameObject.AddComponent<AudioSource>();
@@ -98,9 +112,11 @@ public class AudioManager : MonoBehaviour
         {
             case "han":
                 _audioSource.PlayOneShot(_audioClips[5]);
+                lukeChosen = false;
                 break;
             case "luke":
                 _audioSource.PlayOneShot(_audioClips[6]);
+                lukeChosen = true;
                 break;
         }
     }
@@ -137,6 +153,30 @@ public class AudioManager : MonoBehaviour
             case "spread":
                 _audioSource.PlayOneShot(_audioClips[7]);
                 break;
+        }
+    }
+
+    public void PlayDarthVaderQuote()
+    {
+        if(Random.Range(0, 100) < 20 && lukeChosen)
+        {
+            _audioSource.PlayOneShot(_darthVaderLuke);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(_darthVaderCommon[((int)Random.Range(0, 100)) % _darthVaderCommon.Length]);
+        }
+    }
+
+    public void PlayDarthVaderDefeatQuote()
+    {
+        if (Random.Range(0, 100) < 20 && lukeChosen)
+        {
+            _audioSource.PlayOneShot(_darthVaderLukeDefeat);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(_darthVaderDefeatCommon[((int)Random.Range(0, 100)) % _darthVaderDefeatCommon.Length]);
         }
     }
 }

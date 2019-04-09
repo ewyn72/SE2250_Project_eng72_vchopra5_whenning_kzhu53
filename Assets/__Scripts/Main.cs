@@ -124,8 +124,9 @@ public class Main : MonoBehaviour
             {
                 if (!_bossSpawned)
                 {
-                    SpawnBoss();
+                    AudioManager.AUDIO_MANAGER.PlayDarthVaderQuote();
                     _bossSpawned = true;
+                    Invoke("SpawnBoss", 2);
                 }
             }
         }
@@ -193,6 +194,7 @@ public class Main : MonoBehaviour
             ProgressBar.PROGRESS.CurrentTime = 0;
             ProgressBar.PROGRESS.maxTime += 10;
             Enemy.UpdateEnemy();
+            AudioManager.AUDIO_MANAGER.PlayDarthVaderDefeatQuote();
             _bossSpawned = false;
         }
     }
