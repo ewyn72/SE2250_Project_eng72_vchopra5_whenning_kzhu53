@@ -13,7 +13,8 @@ public class Parallax : MonoBehaviour
 
     private float _panelHt;
     private float _depth;
-    // Start is called before the first frame update
+    
+    //renders in the background
     void Start()
     {
         _panelHt = panels[0].transform.localScale.y;
@@ -23,7 +24,7 @@ public class Parallax : MonoBehaviour
         panels[1].transform.position = new Vector3(0, _panelHt, _depth);
     }
 
-    // Update is called once per frame
+    //scrolls the background, creating the parallax effect
     void Update()
     {
         float tY, tX = 0;

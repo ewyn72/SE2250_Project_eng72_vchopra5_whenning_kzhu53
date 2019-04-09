@@ -35,6 +35,7 @@ public class Hero : MonoBehaviour
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
 
+    //sets up the player hero
     void Awake()
     {
         if (PLAYER_HERO == null)
@@ -54,7 +55,7 @@ public class Hero : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    //main logic and movement for the hero
     void Update()
     {
         if (!Pause.gamePaused)
@@ -97,6 +98,7 @@ public class Hero : MonoBehaviour
                 fireDelegate();
             }
 
+            //turns the player back to its original colours when invincibility runs out
                 if (showingInvin && Time.time > invinDoneTime)
                 {
                     UnShowInvin();
@@ -106,6 +108,7 @@ public class Hero : MonoBehaviour
         }
     }
 
+    //deals with colliding with enemies, enemy projectiles, and powerups
     void OnTriggerEnter(Collider other)
     {
         Transform rootT = other.gameObject.transform.root;
@@ -142,10 +145,7 @@ public class Hero : MonoBehaviour
         else if (go.tag == "EnemyBoss")
         {
             //Kills the hero by lowering to death threshold
-            shieldLevel--;
-            shieldLevel--;
-            shieldLevel--;
-            shieldLevel--;
+            shieldLevel = 0;
             shieldLevel--;
         }
         else
@@ -154,22 +154,26 @@ public class Hero : MonoBehaviour
         }
     }
 
+    //logic for powerups
     public void AbsorbPowerUp(GameObject go)
     {
         Powerup pu = go.GetComponent<Powerup>();
         switch (pu.type)
         {
+            //the shield powerup. It raises the hero's shield level by 1
             case WeaponType.shield:
                 if (_shieldLvl < 4)
                 {
                     _shieldLvl += 1;
                 }
                 break;
+            //the invincibility powerup. Makes the hero invulnerable for a short time and turns the hero yellow for that duration.
             case WeaponType.invincibility:
                 _isInvincible = true;
                 _startInvin = Time.time;
                 ShowInvin();
                 break;
+            //the nuke powerup. It destroys all enemies onscreen.
             case WeaponType.nuke:
                 Main.MAIN_SINGLETON.nuke();
                 break;
@@ -198,6 +202,7 @@ public class Hero : MonoBehaviour
         }
     }
 
+    //turns the hero yellow
     void ShowInvin()
     {
         foreach (Material m in materials)
@@ -208,6 +213,7 @@ public class Hero : MonoBehaviour
         invinDoneTime = Time.time + showInvinDuration;
     }
 
+    //returns the hero to its original colour
     void UnShowInvin()
     {
         for (int i = 0; i < materials.Length; i++)

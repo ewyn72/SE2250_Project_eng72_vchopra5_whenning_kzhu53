@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    //Sets up the projectiles
     void Awake()
     {
         _bndCheck = GetComponent<BoundsCheck>();
@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    //deletes the projectile once it goes offscreen
     void Update()
     {
         if (_bndCheck.offUp || _bndCheck.offLeft || _bndCheck.offRight || _bndCheck.offDown)

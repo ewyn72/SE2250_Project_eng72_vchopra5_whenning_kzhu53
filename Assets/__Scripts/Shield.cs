@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    //variable for the rotation speed of the shield
     [Header("Set in Inspector")]
     public float rotationsPerSecond = 0.1f;
 
+    //variable for the level of the shield
     [Header("Set Dynamically")]
     public int levelShown = 0;
 
     Material mat;
 
-
+    //renders in the shield
     void Start()
     {
         mat = GetComponent<Renderer>().material;

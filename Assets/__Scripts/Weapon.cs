@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 [System.Serializable]
+//base class of a weapon
 public class WeaponDefinition
 {
     public WeaponType type = WeaponType.none;
@@ -29,7 +30,7 @@ public class Weapon : MonoBehaviour
     public float lastShotTime;
     private Renderer _collarRend;
 
-    // Start is called before the first frame update
+    //sets up the weapons
     void Start()
     {
         collar = transform.Find("Collar").gameObject;
@@ -144,7 +145,7 @@ public class Weapon : MonoBehaviour
         return projectile;
     }
 
-    // Update is called once per frame
+    //handles the switching of weapons
     void Update()
     {
         if (!Pause.gamePaused)

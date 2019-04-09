@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//list of weapons and powerups
 public enum WeaponType
 {
     none,
@@ -34,6 +35,7 @@ public class Main : MonoBehaviour
         WeaponType.invincibility
     };
 
+    //sets up each level
     void Awake()
     {
         if (MAIN_SINGLETON == null)
@@ -64,7 +66,7 @@ public class Main : MonoBehaviour
         AudioManager.AUDIO_MANAGER.SwitchScene();
     }
 
-    // Update is called once per frame
+    //Main logic for the game
     void Update()
     {
         if (!Pause.gamePaused)
@@ -155,6 +157,7 @@ public class Main : MonoBehaviour
         return (new WeaponDefinition());
     }
 
+    //the logic for the nuke powerup. Deletes all enemies currently in the scene
     public void nuke()
     {
         GameObject[] enemyList;
@@ -190,6 +193,7 @@ public class Main : MonoBehaviour
         }
     }
 
+    //spawns in the boss for the level
     public void SpawnBoss()
     {
         GameObject enemy = Instantiate<GameObject>(prefabEnemies[3]);
