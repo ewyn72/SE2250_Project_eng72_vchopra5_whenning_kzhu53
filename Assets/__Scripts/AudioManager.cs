@@ -25,8 +25,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource _audioSource;
 
     //Clips that are unique to Luke facing the boss
-    private AudioClip _darthVaderLuke;
-    private AudioClip _darthVaderLukeDefeat;
+    private AudioClip[] _darthVaderLuke;
 
     //Default variable which means that Luke is the default variable
     private bool lukeChosen = true;
@@ -69,8 +68,7 @@ public class AudioManager : MonoBehaviour
 
 
         //Sound effects unique to Luke
-        _darthVaderLuke = Resources.Load("darthvader_pointless") as AudioClip;
-        _darthVaderLukeDefeat = Resources.Load("darthvader_taughtyouwell") as AudioClip;
+        _darthVaderLuke = new AudioClip[] { (AudioClip)Resources.Load("Audio/darthvader_pointless"), (AudioClip)Resources.Load("Audio/darthvader_taughtyouwell")};
 
         //If an AudioSource has not been created, create a New One
         if (_audioSource == null)
@@ -202,9 +200,9 @@ public class AudioManager : MonoBehaviour
     //If the boss is going to appear, then play a quote from Darth Vader
     public void PlayDarthVaderQuote()
     {
-        if(Random.Range(0, 100) < 20 && lukeChosen)
+        if(Random.Range(0, 100) < 101 && lukeChosen)
         {
-            _audioSource.PlayOneShot(_darthVaderLuke);
+            _audioSource.PlayOneShot(_darthVaderLuke[0]);
         }
         else
         {
@@ -215,10 +213,10 @@ public class AudioManager : MonoBehaviour
     //If the boss is defeated, then play a defeat quote
     public void PlayDarthVaderDefeatQuote()
     {
-        if (Random.Range(0, 100) < 20 && lukeChosen)
+        if (Random.Range(0, 100) < 101 && lukeChosen)
         {
-            _audioSource.PlayOneShot(_darthVaderLukeDefeat);
-        }
+            _audioSource.PlayOneShot(_darthVaderLuke[1]);
+        }     
         else
         {
             _audioSource.PlayOneShot(_darthVaderDefeatCommon[((int)Random.Range(0, 100)) % _darthVaderDefeatCommon.Length]);

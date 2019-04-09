@@ -25,7 +25,6 @@ public class Hero : MonoBehaviour
     private float _InvinTime = 5f;
     private bool _isInvincible = false;
     private bool _startAnimation = true;
-    private bool _animation = true;
     public Color[] originalColors;
     public Material[] materials;
     public bool showingInvin = false;
@@ -93,7 +92,7 @@ public class Hero : MonoBehaviour
             // Ship Rotation
             transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
 
-            if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+            if (Input.GetAxis("Jump").Equals(1) && fireDelegate != null)
             {
                 fireDelegate();
             }
