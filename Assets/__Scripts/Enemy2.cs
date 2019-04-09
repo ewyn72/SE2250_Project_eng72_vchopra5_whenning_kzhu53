@@ -26,18 +26,21 @@ public class Enemy2 : Enemy
     //Move in a sinusoidal pattern
     public override void Move()
     {
-        Vector3 tempPos = transform.position;
+        if (!Pause.IS_PAUSED)
+        {
+            Vector3 tempPos = transform.position;
 
-        float age = Time.time - _birthtime;
-        float theta = Mathf.PI * 2 * age / waveFrequency;
-        float sin = Mathf.Sin(theta);
-        tempPos.x = _x0 + waveWidth * sin;
-        transform.position = tempPos;
+            float age = Time.time - _birthtime;
+            float theta = Mathf.PI * 2 * age / waveFrequency;
+            float sin = Mathf.Sin(theta);
+            tempPos.x = _x0 + waveWidth * sin;
+            transform.position = tempPos;
 
-        Vector3 rotate = new Vector3(0, sin * waveRotY, 0);
-        this.transform.rotation = Quaternion.Euler(rotate);
+            Vector3 rotate = new Vector3(0, sin * waveRotY, 0);
+            this.transform.rotation = Quaternion.Euler(rotate);
 
-        base.Move();
+            base.Move();
+        }
     }
 
 }

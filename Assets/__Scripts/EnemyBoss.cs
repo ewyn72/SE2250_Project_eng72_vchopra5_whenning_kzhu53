@@ -41,59 +41,80 @@ public class EnemyBoss : Enemy
 
     void InitMovement()
     {
-        _p0 = _p1;  //Sets p0 to old p1
-        //Assigning new position
-        
-        //The addition/subtractions account for model size
-        _p1.x = Random.Range(0, 30); 
-        _p1.y = Random.Range(30, 39);
-        
-        //Resets time
-        _timeStart = Time.time;
+        if (!Pause.IS_PAUSED)
+        {
+            _p0 = _p1;  //Sets p0 to old p1
+                        //Assigning new position
+
+            //The addition/subtractions account for model size
+            _p1.x = Random.Range(0, 30);
+            _p1.y = Random.Range(30, 39);
+
+            //Resets time
+            _timeStart = Time.time;
+        }
     }
 
     public override void Move()
     {
-        Fire();
-        
-        //This overrides the Enemy.Move() with a linear interpolation
-        float u = (Time.time - _timeStart) / _duration;
-
-        if (u >= 1)
+        //Only fire if it is not paused and only move if it is not paused
+        if (!Pause.IS_PAUSED)
         {
-            InitMovement();
-            u = 0;
+            Fire();
+
+            //This overrides the Enemy.Move() with a linear interpolation
+            float u = (Time.time - _timeStart) / _duration;
+
+            if (u >= 1)
+            {
+                InitMovement();
+                u = 0;
+            }
+
+            u = 1 - Mathf.Pow(1 - u, 2);                    //Apply Ease Out easing to u (Moves fast at beginning and slows as it approaches _p1)
+            transform.position = (1 - u) * _p0 + u * _p1;   //Simple linear interpolation
+        }
+        //Set the time to be the current time if it is paused to ensure that the boss doesn't immediately fire after unpausing
+        else
+        {
+            _time = Time.time;
         }
 
-        u = 1 - Mathf.Pow(1 - u, 2);                    //Apply Ease Out easing to u (Moves fast at beginning and slows as it approaches _p1)
-        transform.position = (1 - u) * _p0 + u * _p1;   //Simple linear interpolation
-        
     }
     
     public void Fire()
     {
-        //The boss fires every 2seconds
-        if (Time.time >= _time + _fireRate)
+        //Only fire if not paused
+        if (!Pause.IS_PAUSED)
         {
-            //Creates 3 projectiles and sets there location relative to the boss's location so they come from different points
-            GameObject projectile1 = Instantiate<GameObject>(projPrefab);
-            GameObject projectile2 = Instantiate<GameObject>(projPrefab);
-            GameObject projectile3 = Instantiate<GameObject>(projPrefab);
-            projectile1.transform.position = transform.position + new Vector3(-17, -46, -20);
-            Rigidbody rigidB1 = projectile1.GetComponent<Rigidbody>();
-            rigidB1.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
+            //The boss fires every few seconds
+            if (Time.time >= _time + _fireRate)
+            {
+                //Creates 3 projectiles and sets there location relative to the boss's location so they come from different points
+                GameObject projectile1 = Instantiate<GameObject>(projPrefab);
+                GameObject projectile2 = Instantiate<GameObject>(projPrefab);
+                GameObject projectile3 = Instantiate<GameObject>(projPrefab);
+                projectile1.transform.position = transform.position + new Vector3(-14.25f, -46, -20);
+                Rigidbody rigidB1 = projectile1.GetComponent<Rigidbody>();
+                rigidB1.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
 
-            projectile2.transform.position = transform.position + new Vector3(-22f, -28, -20);
-            Rigidbody rigidB2 = projectile2.GetComponent<Rigidbody>();
-            rigidB2.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
+                projectile2.transform.position = transform.position + new Vector3(-19.25f, -28, -20);
+                Rigidbody rigidB2 = projectile2.GetComponent<Rigidbody>();
+                rigidB2.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
 
-            projectile3.transform.position = transform.position + new Vector3(-11f, -28, -20);
-            Rigidbody rigidB3 = projectile3.GetComponent<Rigidbody>();    
-            rigidB3.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
-            
-            //Reseting the time variable and increasing the speed of the boss projectile
+                projectile3.transform.position = transform.position + new Vector3(-8.25f, -28, -20);
+                Rigidbody rigidB3 = projectile3.GetComponent<Rigidbody>();
+                rigidB3.velocity = Vector3.down * projSpeed * projectileSpeedScaler;
+
+                //Reseting the time variable and increasing the speed of the boss projectile
+                _time = Time.time;
+                projectileSpeedScaler = projectileSpeedScaler + 0.05f;
+            }
+        }
+        //Set the time to be the current time if it is paused to ensure that the boss doesn't immediately fire after unpausing
+        else
+        {
             _time = Time.time;
-            projectileSpeedScaler = projectileSpeedScaler + 0.05f;
         }
     }
 

@@ -19,20 +19,24 @@ public class Enemy1 : Enemy
     //Move diagonally
     public override void Move()
     {
-        Vector3 position = this.transform.position;
-
-        if (_leftOrRight == 0)
+        if (!Pause.IS_PAUSED)
         {
-            position.x -= speed * Time.deltaTime;
-        }
-        else if (_leftOrRight == 1)
-        {
-            position.x += speed * Time.deltaTime;
+            Vector3 position = this.transform.position;
+
+            if (_leftOrRight == 0)
+            {
+                position.x -= speed * Time.deltaTime;
+            }
+            else if (_leftOrRight == 1)
+            {
+                position.x += speed * Time.deltaTime;
+            }
+
+            this.transform.position = position;
+
+            base.Move();
         }
 
-        this.transform.position = position;
-
-        base.Move();
     }
 
 }

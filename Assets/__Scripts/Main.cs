@@ -102,7 +102,7 @@ public class Main : MonoBehaviour
                 enemy.transform.position = new Vector3(xPos, 45f);
             }
             //If a level has not been shown, then show
-            if(_delayEnemySpawn.Equals(0f) && !_levelAlreadyShown)
+            if(_delayEnemySpawn - _time < 1f && !_levelAlreadyShown)
             {
                 Levels.LEVEL_SINGLETON.ShowLevel();
                 _levelAlreadyShown = true;
