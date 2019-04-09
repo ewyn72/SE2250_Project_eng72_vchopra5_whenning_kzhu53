@@ -18,10 +18,10 @@ public class Levels : MonoBehaviour
     //Create the Levels class
     private void Awake()
     {
-        //Disable the text anytime this is created (as a failsafe)
-        firstLevelField.enabled = false;
+
         if (LEVEL_SINGLETON == null)
         {
+            firstLevelField.enabled = false;
             LEVEL_SINGLETON = this;
             levelField = firstLevelField;
             DontDestroyOnLoad(gameObject);
