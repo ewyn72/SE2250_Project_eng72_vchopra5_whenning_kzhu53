@@ -17,6 +17,7 @@ public class Characters : MonoBehaviour
             characterList[i] = transform.GetChild(i).gameObject;
         }
 
+        // Instantiate luke default or change to player preference
         if(CharacterSelect.CHAR_SINGLETON.luke)
         {
             Instantiate<GameObject>(characterList[0]);

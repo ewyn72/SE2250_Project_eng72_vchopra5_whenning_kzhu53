@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject scoreManager;
+
+    // When script starts audio manager function is called to play music
     public void Start()
     {
         AudioManager.AUDIO_MANAGER.SwitchScene();
     }
+
+    // Event handler for play button
+    // when called will progress game into next scene
     public void PlayGame ()
     {
         if (PlayerPrefs.GetInt("ShowedIntro", 2) != 3)
@@ -24,6 +29,8 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    // Event handler for quit game button
+    // When called, application will be exited
     public void QuitGame ()
     {
         Debug.Log("Quit Game");

@@ -102,8 +102,10 @@ public class Main : MonoBehaviour
             }
         }
 
+        // Check if progress bar is finished
         if (ProgressBar.PROGRESS.finish && _time > _delayEnemySpawn)
         {
+            // if first scene move to next level
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 _delayEnemySpawn = 3f;
@@ -111,6 +113,7 @@ public class Main : MonoBehaviour
                 Enemy.UpdateEnemy();
                 Invoke("NextLevel", 2f);
             }
+            // if second scene spawn boss at end of progress bar
             if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 if (!_bossSpawned)
@@ -128,12 +131,14 @@ public class Main : MonoBehaviour
         Invoke("Restart", delay);
     }
 
+    // Moves game to first game scene
     public void Restart()
     {
         ScoreManager.SCORE_MANAGER.updateCurrScore(0);
         SceneManager.LoadScene("_Scene_0");
     }
 
+    // Moves game to next scene
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);

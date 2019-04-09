@@ -23,6 +23,7 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    // Property for time
     public float CurrentTime {
         get{
             return _currTime;
@@ -37,6 +38,7 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    // Updates slider position according to current time relative to max time
     private void Update()
     {
         if (!Pause.gamePaused)
@@ -54,6 +56,7 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    // Calculates slider value
     float CalculateSliderValue()
     {
         return (_currTime / maxTime);

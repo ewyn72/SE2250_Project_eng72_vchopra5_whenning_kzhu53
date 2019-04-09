@@ -22,6 +22,7 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
+    // Event handler for when Luke button is pressed in character select
     public void ToggleLuke()
     {
         luke = true;
@@ -29,6 +30,7 @@ public class CharacterSelect : MonoBehaviour
         AudioManager.AUDIO_MANAGER.CharacterSelect("luke");
     }
 
+    // Event handler for when Solo button is pressed in character select
     public void ToggleSolo()
     {
         solo = true;

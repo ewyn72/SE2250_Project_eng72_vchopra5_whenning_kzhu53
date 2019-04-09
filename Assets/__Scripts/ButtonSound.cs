@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonSound : MonoBehaviour{ 
 
+    // Event handlers for button sounds
     public void HoverSound()
     {
         AudioManager.AUDIO_MANAGER.PlayHover();
